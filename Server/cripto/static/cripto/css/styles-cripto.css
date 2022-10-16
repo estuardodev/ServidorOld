@@ -1,0 +1,119 @@
+body{
+    background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+
+.center{
+    text-align: center;
+}
+
+.center h1{
+    padding-top: 50px;
+}
+
+.bajo{
+    padding-top: 150px;
+    padding-bottom: 233px;
+}
+
+.article{
+    background: linear-gradient(to bottom, #00388e, #593796, #8d3095, #b8268c, #dc227c);
+    width: 100%;
+    height: 630px;
+    padding-bottom: 0;
+}
+
+.article img{
+    width: 350px;
+    text-align: left;
+    padding-top: 150px;
+    position: absolute;
+}
+
+.article h2{
+    position: relative;
+    padding-left: 400px;
+    padding-top: 225px;
+    color: #FFF;
+}
+
+.article p{
+    position: relative;
+    padding-left: 400px;
+    font-size: 26px;
+}
+
+.footer{
+    background: linear-gradient(to bottom, #f40123, #f7208e, #be6ada, #6195f4, #11ace1);
+    width: 100%;
+    padding-top: -50px;
+    height: 150px;
+}
+
+.text-muted{
+   color: #FFF!important;
+}
+
+@media only screen and  (min-width: 761px) {
+    .article h2{
+        position: relative;
+        padding-left: 400px;
+        padding-top: 100px;
+        color: #FFF;
+    }
+    
+    .article p{
+        position: relative;
+        padding-left: 400px;
+        font-size: 26px;
+    }
+}
+
+@media only screen and  (max-width: 768px) {
+    .article h2{
+        position: relative;
+        padding-left: 270px;
+        padding-top: 150px;
+        color: #FFF;
+    }
+    
+    .article p{
+        position: relative;
+        padding-left: 270px;
+        font-size: 20px;
+    }
+
+    .article img{
+        width: 200px;
+        text-align: left;
+        padding-top: 170px;
+        position: absolute;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .article h2{
+        padding-left: 0;
+        padding-top: 240px;
+        color: #FFF;
+    }
+    
+    .article p{
+        padding-left: 0;
+        font-size: 20px;
+    }
+
+    .article img{
+        left: 80px;
+        top: 640px;
+    }
+    .footer {
+        background: #FFF;
+    }
+    .footer .nav{
+        
+        padding-top: 15px;
+    }
+    .text-muted{
+        color: #000!important;
+     }
+}
