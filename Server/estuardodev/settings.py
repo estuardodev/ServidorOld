@@ -28,13 +28,16 @@ SECRET_KEY = 'django-insecure-*5)r*hu5^1=2d@8&xex-#1=e5$sri+k+p2ap83=01!zyj!d_da
 DEBUG = True # LOCAL
 # DEBUG = False # Production
 
-ALLOWED_HOSTS = [] # Local
+ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Local
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Production
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # TERCEROS
+    'django_hosts',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,9 +48,13 @@ INSTALLED_APPS = [
     # PROPIAS
     'portafolio.apps',
     'cripto.cripto_apps',
+    
 ]
 
 MIDDLEWARE = [
+    # Django hosts
+    'django_hosts.middleware.HostsRequestMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,9 +62,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Django hosts
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'estuardodev.urls'
+
+# Django hosts
+ROOT_HOSTCONF = 'estuardodev.hosts'
+DEFAULT_HOST = 'www'
 
 TEMPLATES = [
     {
