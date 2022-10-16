@@ -1,0 +1,258 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.imgabout{
+    width: 350px;
+    border-radius: 30px;
+    float: right;
+    margin-right: 30px;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    
+}
+
+
+.contract{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-wrap: wrap;
+}
+
+.card-contrato{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: .5s;
+    margin: 15px 5px 10px;
+
+}
+
+.card-contrato:hover{
+    box-shadow: 0 5px 15px rgba(3, 89, 92, 0.5);
+    transform: translateY(-15px);
+
+}
+
+.card-contrato .head-contrato{
+    height: 125px;
+    width: 100%;
+    position: relative;
+}
+
+.card-contrato .head-contrato .circle-contrato{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #0b6f72;
+    bottom: 0;
+}
+
+.card-contrato .head-contrato .img-contrato{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    bottom: -30%;
+    left: 50%;
+    transform: translate(-50%);
+    background: #fff;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.card-contrato .head-contrato .img-contrato img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    
+}
+
+.card-contrato .description-contrato{
+    height: 200px;
+    padding: 90px 0px 20px 20px;
+    text-align: center;
+}
+
+.card-contrato .description-contrato h3{
+    color: #05383a;
+
+}
+.card-contrato .description-contrato h4{
+    color: #1c5a5c;
+}
+
+.card-contrato .description-contrato p{
+    margin-top: 20px;
+    font-size: 15px;
+    
+}
+
+@media only screen and (min-width: 1025px), (max-width: 1075px) {
+    #navbarNav{
+        padding-left: 60%;
+    }
+
+    .a{
+        padding-left: 50px;
+        padding-bottom: 30px;
+    }
+    
+    .b{
+        padding-left: 45px;
+        padding-bottom: 30px;
+    }
+    
+    .c{
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+
+}
+
+
+@media only screen and (min-width: 1076px), (max-width: 1280px) {
+    #navbarNav{
+        padding-left: 65%;
+    }
+    .a{
+        padding-left: 50px;
+        padding-bottom: 30px;
+    }
+    
+    .b{
+        padding-left: 45px;
+        padding-bottom: 30px;
+    }
+    
+    .c{
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    #navbarNav{
+        padding-left: 70%;
+    }
+    
+    .a{
+        padding-left: 50px;
+        padding-bottom: 30px;
+    }
+    
+    .b{
+        padding-left: 45px;
+        padding-bottom: 30px;
+    }
+    
+    .c{
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+
+@media only screen and (max-width: 991px) {
+    #navbarNav{
+        padding-left: 0%;
+    }
+    
+    .a{
+        padding-left: 50px;
+        padding-bottom: 30px;
+    }
+    
+    .b{
+        padding-left: 45px;
+        padding-bottom: 30px;
+    }
+    
+    .c{
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+
+}
+
+
+@media only screen and (max-width: 415px), (min-width: 280px) {
+    .imgabout{
+        width: 187px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .a{
+        padding-left: 50px;
+        padding-bottom: 30px;
+    }
+    
+    .b{
+        padding-left: 45px;
+        padding-bottom: 30px;
+    }
+    
+    .c{
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+
+@media only screen and (min-width: 410px), (max-width: 414px){
+    .imgabout{
+        width: 315px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .a{
+        padding-left: 20px;
+        padding-bottom: 30px;
+    }
+    
+    .b{
+        padding-left: 45px;
+        padding-bottom: 30px;
+    }
+    
+    .c{
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 375px), (max-width: 413px){
+    .imgabout{
+        width: 260px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .a{
+        padding-left: 35px;
+        padding-bottom: 30px;
+    }
+    
+    .b{
+        padding-left: 35px;
+        padding-bottom: 30px;
+    }
+    
+    .c{
+        padding-left: 35px;
+        padding-bottom: 30px;
+    }
+}
+
