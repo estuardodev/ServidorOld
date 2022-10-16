@@ -29,7 +29,7 @@ DEBUG = True # LOCAL
 # DEBUG = False # Production
 
 ALLOWED_HOSTS = [] # Local
-# ALLOWED_HOSTS = [] # Production
+# ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Production
 
 
 # Application definition
@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # PROPIAS
+    'portafolio.urls',
 ]
 
 MIDDLEWARE = [
