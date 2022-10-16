@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # PROPIAS
-    'portafolio.urls',
+    'portafolio.apps',
+    'cripto.cripto_apps',
 ]
 
 MIDDLEWARE = [
