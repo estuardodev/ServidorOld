@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views import generic
 
-def saraIndex(request):
-    return HttpResponse("Este es el subdominio")
+class SaraIndexView(generic.TemplateView):
+    template_name: str = "cripto/sara.html"
