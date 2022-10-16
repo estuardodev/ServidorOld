@@ -25,11 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*5)r*hu5^1=2d@8&xex-#1=e5$sri+k+p2ap83=01!zyj!d_da'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # LOCAL
-# DEBUG = False # Production
+# DEBUG = True # LOCAL
+DEBUG = False # Production
 
-ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Local
-# ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Production
+# ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Local
+ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Production
 
 
 # Application definition
