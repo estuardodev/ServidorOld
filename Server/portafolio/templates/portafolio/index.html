@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -11,18 +12,18 @@
         <!--Obligatorios-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <link rel="icon" href="img/estuardodev.webp">
-        <link rel="apple-touch-icon" href="img/estuardodev.webp">
+        <link rel="icon" href="{% static 'portafolio/img/estuardodev.webp' %}">
+        <link rel="apple-touch-icon" href="{% static 'portafolio/img/estuardodev.webp' %}">
 
         <!--Estilos Propios-->
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'portafolio/css/style.css' %}">
     </head>
     <body>
 
         <nav class="navbar bg-light navbar-expand-lg" id="home">
             <div class="container-fluid">
-              <a class="navbar-brand" href="/index.html">
-                <img src="/img/estuardodev.webp" alt="Imagen de Estuardo" width="30" height="30" class="d-inline-block align-text-top">
+              <a class="navbar-brand" href="{% url 'portafolio:index' %}">
+                <img src="{% static 'portafolio/img/estuardodev.webp' %}" alt="Imagen de Estuardo" width="30" height="30" class="d-inline-block align-text-top">
                 Estuardo Ramírez
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +49,7 @@
               </div>
             </div>
           </nav>
-          <img src="img/portafolio.webp" class="portada" alt="Imagen de Estuardo Ramíre" srcset="img/portafolio.webp 1297w, img/portafolio.webp 800w, img/portafolio.webp 400w, img/portafolio.webp 350w, img/portafolio.webp 250w">
+          <img src="{% static 'portafolio/img/portafolio.webp' %}" class="portada" alt="Imagen de Estuardo Ramírez" srcset="{% static 'portafolio/img/portafolio.webp' %} 1297w, {% static 'portafolio/img/portafolio.webp' %} 800w, {% static 'portafolio/img/portafolio.webp' %} 400w, {% static 'portafolio/img/portafolio.webp' %} 350w, {% static 'portafolio/img/portafolio.webp' %} 250w">
 
 
           <!--Acerca de mi-->
@@ -61,7 +62,7 @@
             <div class="container">
               <h2>Acerca de mi</h2>
               <div class="container">
-                <img src="img/estuardodev.webp" class="imgabout" alt="Fotografía de Estuardo Ramírez, estuardodev">
+                <img src="{% static 'portafolio/img/estuardodev.webp' %}" class="imgabout" alt="Fotografía de Estuardo Ramírez, estuardodev">
                 <p><b>¡Soy Estuardo Ramírez un gusto tenerte por acá! Te hablaré sobre mí.</b></p>
               </div>
               <p>Soy un joven Guatemalteco apasionado por la programación y todo lo relacionado con el ambito de la tecnología,
@@ -110,7 +111,7 @@
               <div class="row"> 
                 <div class="col-sm-4 a">
                   <div class="card" style="width: 18rem;">
-                    <img src="img/scancam.webp" class="card-img-top" alt="logo de scan cam">
+                    <img src="{% static 'portafolio/img/scancam.webp' %}" class="card-img-top" alt="logo de scan cam">
                     <div class="card-body">
                       <h5 class="card-title">Scan Cam</h5>
                       <p class="card-text">Scan Cam es una aplicación móvil para el escaneo de códigos QR, de barras y otros tipos.</p>
@@ -120,7 +121,7 @@
                 </div>
                 <div class="col-sm-4 b">
                   <div class="card" style="width: 18rem;">
-                    <img src="img/mtlibrary.webp" class="card-img-top" alt="logo de librería mtlibrary">
+                    <img src="{% static 'portafolio/img/mtlibrary.webp' %}" class="card-img-top" alt="logo de librería mtlibrary">
                     <div class="card-body">
                       <h5 class="card-title">MTLibrary</h5>
                       <p class="card-text">Es una libreria de matemáticas en español en Python, para así ayudar a programadores.</p>
@@ -130,7 +131,7 @@
                 </div>
                 <div class="col-sm-4 c">
                   <div class="card" style="width: 18rem;">
-                    <img src="img/error.webp" class="card-img-top" alt="logo de move file">
+                    <img src="{% static 'portafolio/img/error.webp' %}" class="card-img-top" alt="logo de move file">
                     <div class="card-body">
                       <h5 class="card-title">MoveFile</h5>
                       <p class="card-text">Es una herramienta en código para automatizar el mover archivos por su extensión.</p>
@@ -140,7 +141,7 @@
                 </div>
               </div>
               <div class="card mb-3">
-                <img src="img/githubr.webp" class="card-img-top" alt="Imagen de github repositorios">
+                <img src="{% static 'portafolio/img/githubr.webp' %}" class="card-img-top" alt="Imagen de github repositorios">
                 <div class="card-body">
                   <h5 class="card-title">Más proyectos</h5>
                   <p class="card-text">Si deseas seguir viendo más de mis proyectos o proyectos antiguos, puedes consultar en mi perfil de proyectos de GitHub, ahí encontraras proyectos antiguos como recientes.</p>
@@ -170,7 +171,7 @@
                     <div class="head-contrato">
                       <div class="circle-contrato">
                         <div class="img-contrato">
-                          <img src="img/apasionado.webp" alt="imagen indicativa de apasionado">
+                          <img src="{% static 'portafolio/img/apasionado.webp' %}" alt="imagen indicativa de apasionado">
                         </div>
                       </div>
                     </div>
@@ -184,7 +185,7 @@
                     <div class="head-contrato">
                       <div class="circle-contrato">
                         <div class="img-contrato">
-                          <img src="img/responsable.webp" alt="Imagen representativa de una persona responsable">
+                          <img src="{% static 'portafolio/img/responsable.webp' %}" alt="Imagen representativa de una persona responsable">
                         </div>
                       </div>
                     </div>
@@ -198,7 +199,7 @@
                     <div class="head-contrato">
                       <div class="circle-contrato">
                         <div class="img-contrato">
-                          <img src="img/aprendiz.webp" alt="Imagen representativa de una persona autodidacta">
+                          <img src="{% static 'portafolio/img/aprendiz.webp' %}" alt="Imagen representativa de una persona autodidacta">
                         </div>
                       </div>
                     </div>
@@ -231,7 +232,7 @@
                 <div class="row"> 
                   <div class="col-sm-4 a">
                     <div class="card" style="width: 18rem;">
-                      <img src="img/cursoprofesionaldepython.webp" class="card-img-top" alt="Curso profesional de Python Platzi">
+                      <img src="{% static 'portafolio/img/cursoprofesionaldepython.webp' %}" class="card-img-top" alt="Curso profesional de Python Platzi">
                       <div class="card-body">
                         <h5 class="card-title">Curso Profesional de Python</h5>
                         <p class="card-text">Domina los conceptos que te llevarán a las condiciones necesarias para iniciar tu camino en la carrera de la industria tecnológica que prefieras: Backend, Ciencia de Datos, Inteligencia Artificial.</p>
@@ -241,7 +242,7 @@
                   </div>
                   <div class="col-sm-4 b">
                     <div class="card" style="width: 18rem;">
-                      <img src="img/poo.webp" class="card-img-top" alt="Curso de Programación Orientada a Objetos Platzi">
+                      <img src="{% static 'portafolio/img/poo.webp' %}" class="card-img-top" alt="Curso de Programación Orientada a Objetos Platzi">
                       <div class="card-body">
                         <h5 class="card-title">Curso de Programación Orientada a Objetos</h5>
                         <p class="card-text">El elegido para esta tarea: tú. Sé parte de la generación que logra cambiar el mundo a través de ideas innovadoras, porque la diferencia entre ser testigo del cambio y ser parte de él comienza con Platzi y aprende POO.</p>
@@ -251,7 +252,7 @@
                   </div>
                   <div class="col-sm-4 c">
                     <div class="card" style="width: 18rem;">
-                      <img src="img/django-intermedio.webp" class="card-img-top" alt="Curso Profesional de Git y GitHub Platzi">
+                      <img src="{% static 'portafolio/img/django-intermedio.webp' %}" class="card-img-top" alt="Curso Profesional de Git y GitHub Platzi">
                       <div class="card-body">
                         <h5 class="card-title">Curso Intermedio de Django</h5>
                         <p class="card-text">En este segundo curso de la saga de Django analizarás los conceptos fundamentales sobre el Testing. Mejorarás el administrador de Django con nuevos atributos, implementarás archivos estáticos en tu proyecto.</p>
@@ -261,7 +262,7 @@
                   </div>
                   <div class="col-sm-4 c">
                     <div class="card" style="width: 18rem;">
-                      <img src="img/gitygithub.webp" class="card-img-top" alt="Curso Profesional de Git y GitHub Platzi">
+                      <img src="{% static 'portafolio/img/gitygithub.webp' %}" class="card-img-top" alt="Curso Profesional de Git y GitHub Platzi">
                       <div class="card-body">
                         <h5 class="card-title">Curso Profesional de Git y GitHub</h5>
                         <p class="card-text">Deja de versionar tus proyectos usando tu propio sistema de control de versiones. Mejor usa Git, el sistema de control de versiones por excelencia que utiliza la industria tecnológica.  Aprende a trabajar con git y github.</p>
@@ -284,7 +285,7 @@
             <footer class="py-3 my-4">
               <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                 <li class="nav-item"><a href="#home" class="nav-link px-2 text-muted">Inicio</a></li>
-                <li class="nav-item"><a href="terceros/atribucion.html" target="_blank" class="nav-link px-2 text-muted">Atribuciones</a></li>
+                <li class="nav-item"><a href="" target="_blank" class="nav-link px-2 text-muted">Atribuciones</a></li>
                 <li class="nav-item"><a href="https://twitter.com/estuardodev" target="_blank" class="nav-link px-2 text-muted">Twitter</a></li>
                 <li class="nav-item"><a href="https://www.instagram.com/estuardodev/" target="_blank" class="nav-link px-2 text-muted">Instagram</a></li>
                 <li class="nav-item"><a href="https://www.linkedin.com/in/estuardodev" target="_blank" class="nav-link px-2 text-muted">Linkedin</a></li>
