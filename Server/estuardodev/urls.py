@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler404
-from portafolio.views import Error404View
+from portafolio.views import Error404View, AtributionView
 
 # Importaciones propias
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', include('portafolio.urls')),
+    path('terceros/', AtributionView.as_view())
 ]
 
 # Error 404

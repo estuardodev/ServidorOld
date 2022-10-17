@@ -4,7 +4,6 @@ from django.views import generic
 from ipware import get_client_ip
 
 
-
 def get_user_public_ip(request):
     """  Getting client Ip  """
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -13,8 +12,6 @@ def get_user_public_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
-
-
 
 
 # IndexView ("estuardodev.com" | "www.estuardodev.com")
@@ -26,6 +23,8 @@ def IndexView(request):
     return render(request, template_name, {'ip_client' : ip_client})
     
     
+class AtributionView(generic.TemplateView):
+    template_name: str = "terceros/atribucion.html"
 
 class Error404View(generic.TemplateView):
     template_name: str = "error/404.html"

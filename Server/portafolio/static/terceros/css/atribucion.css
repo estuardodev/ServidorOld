@@ -1,0 +1,77 @@
+*{
+    font-family: 'DynaPuff', cursive;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background: #2E4053;
+}
+
+.fla{
+    padding: 30px;
+    text-align: center;
+}
+
+.fla h1{
+    color: #fff;
+    font-size: 36px;
+}
+
+.fla p{
+    color: #A3E4D7;
+    padding-bottom: 15px;
+}
+
+.fla a{
+    text-decoration: none;
+    background-color: coral;
+    padding: 5px;
+    border-radius: 6px;
+    color: white;    
+}
+
+.free{
+    padding: 30px;
+    text-align: center;
+}
+
+.free h1{
+    color: #fff;
+    font-size: 36px;
+}
+
+.free p{
+    color: #A3E4D7;
+    padding-bottom: 15px;
+}
+
+.free a{
+    text-decoration: none;
+    background-color: coral;
+    padding: 5px;
+    border-radius: 6px;
+    color: white;    
+}
+
+
+.war{
+    text-align: center;
+}
+
+.war p{
+    color: white;
+}
+
+.war p b{
+    color: #E74C3C;
+}
+
+.war p a{
+    text-decoration: none;
+    color: #F1C40F;
+    transition: 0.5s;
+}
+
+.war p a:hover{
+    box-shadow: 0 5px 15px rgba(3, 89, 92, 0.5);
+    transform: translateY(-15);
+}
