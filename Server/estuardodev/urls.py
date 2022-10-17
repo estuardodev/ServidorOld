@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404
+from portafolio.views import Error404View
 
 # Importaciones propias
 
@@ -22,3 +24,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', include('portafolio.urls')),
 ]
+
+# Error 404
+handler404 = Error404View.as_view()
