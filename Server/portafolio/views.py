@@ -22,9 +22,11 @@ def IndexView(request):
 
     return render(request, template_name, {'ip_client' : ip_client})
     
-    
 class AtributionView(generic.TemplateView):
     template_name: str = "terceros/atribucion.html"
 
 class Error404View(generic.TemplateView):
-    template_name: str = "error/404.html"
+    template_name: str = "error/404/404.html"
+
+class Error500View(generic.TemplateView):
+    template_name: str = "error/500/500.html"
