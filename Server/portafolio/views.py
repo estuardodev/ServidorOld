@@ -9,15 +9,11 @@ from ipware import get_client_ip
 def IndexView(request):
     template_name: str = "portafolio/index.html"
     
-    client_ip, is_routable = get_client_ip(request)
-    if client_ip is None:
-        ip_client = 'NO SE HA LOGRADO CAPTURAR TU IP'
-    else:
-        ip_client = client_ip
-    if is_routable:
-        ip_client = client_ip
-    else:
-        ip_client = client_ip
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip_client = x_forwarded_for.split(',')[-1].strip() 
+    else: 
+        ip_client = request.META.get('REMOTE_ADDR') 
 
     return render(request, template_name, {'ip_client' : ip_client})
     
