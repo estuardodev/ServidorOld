@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # PROPIAS
-    'portafolio.apps',
+    'portafolio.apps.PortafolioConfig',
     'cripto.cripto_apps',
     
 ]
