@@ -1,11 +1,12 @@
 {% load static %}
+{% load hosts %}
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <title>Error 404</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="{% static 'errors/404/css/error404.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cripto/errors/404/css/error404.css' %}">
     </head>
     <body>
         <h1>Error 404</h1>
@@ -16,7 +17,7 @@
           <span>4</span>
         </section>
         <div class="link-container">
-          <a href="{% url 'portafolio:index' %}" class="more-link">REGRESAR AL INICIO</a>
+          <a href="https://sara.estuardodev.com" class="more-link">REGRESAR AL INICIO</a>
         </div>
     </body>
 </html>
