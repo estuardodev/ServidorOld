@@ -28,10 +28,10 @@ SECRET_KEY = 'django-insecure-*5)r*hu5^1=2d@8&xex-#1=e5$sri+k+p2ap83=01!zyj!d_da
 '''debug_txt = os.path.join(BASE_DIR, 'debug.txt')
 with open(debug_txt, 'r') as D:
     read_debug = D.read()'''
-DEBUG = True #read_debug
+DEBUG = False #read_debug
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Local
-#ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Production
+ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Production
 
 
 # Application definition
@@ -97,14 +97,18 @@ WSGI_APPLICATION = 'estuardodev.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-'''
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_app',
+        'USER': 'root',
+        'PASSWORD': 'MDB_Root_1',
+        'HOST': 'localhost',
+        'PORT': 3306
     }
 }
-'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
