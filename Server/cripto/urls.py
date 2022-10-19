@@ -1,5 +1,6 @@
 from django.urls import path
 from django.conf.urls import handler500, handler404
+from django.views.generic.base import TemplateView
 
 from . import views
 from portafolio.views import AtributionView
@@ -8,7 +9,8 @@ app_name = 'criptosara'
 
 urlpatterns = [
     path('', views.SaraIndexView.as_view(), name="saraindex"),
-    path('terceros/', AtributionView.as_view(), name="atribucion")
+    path('terceros/', AtributionView.as_view(), name="atribucion"),
+    path('BingSiteAuth.xml', TemplateView.as_view(template_name="portafolio/BingSiteAuth.xml", content_type="text/xml")),
 ]
 
 
