@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /terceros
+
+Sitemap: https://sara.estuardodev.com/sitemap.xml
