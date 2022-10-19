@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('portafolio.urls')),
     path('robots.txt', TemplateView.as_view(template_name="portafolio/robots.txt", content_type="text/plain")),
     path('sitemap.xml', TemplateView.as_view(template_name="portafolio/sitemap.xml", content_type="text/xml")),
+    path('BingSiteAuth.xml', TemplateView.as_view(template_name="portafolio/BingSiteAuth.xml", content_type="text/xml")),
     path('terceros/', AtributionView.as_view())
 ]
 
