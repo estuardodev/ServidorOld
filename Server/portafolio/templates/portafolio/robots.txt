@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /terceros
+
+Sitemap: https://estuardodev.com/sitemap.xml

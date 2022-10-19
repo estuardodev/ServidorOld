@@ -16,13 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler404, handler500
-from portafolio.views import Error404View, Error500View, AtributionView
+from django.views.generic.base import TemplateView
 
 # Importaciones propias
+from portafolio.views import Error404View, Error500View, AtributionView
+
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', include('portafolio.urls')),
+    path('robots.txt', TemplateView.as_view(template_name="portafolio/robots.txt", content_type="text/plain")),
+    path('sitemap.xml', TemplateView.as_view(template_name="portafolio/sitemap.xml", content_type="text/xml")),
     path('terceros/', AtributionView.as_view())
 ]
 
