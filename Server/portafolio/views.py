@@ -21,7 +21,9 @@ def IndexView(request):
     template_name: str = "portafolio/index.html"
     
     ip_client = get_user_public_ip(request)
-    
+
+    return render(request, template_name, {'ip_client' : ip_client})
+'''  
     try:
         cliente = IPClient.objects.get(ip_add=ip_client)
         selected_client = cliente.ipclientvisitas_set.get(pk=cliente.id)
@@ -32,9 +34,9 @@ def IndexView(request):
         create = IPClient.objects.create(ip_add=ip_client)
         create.save()
         create.ipclientvisitas_set.create(visitas=1)
-    
+ '''   
 
-    return render(request, template_name, {'ip_client' : ip_client})
+    
     
 class AtributionView(generic.TemplateView):
     template_name: str = "terceros/atribucion.html"
