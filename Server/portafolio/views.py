@@ -22,8 +22,6 @@ def IndexView(request):
     
     ip_client = get_user_public_ip(request)
 
-    
-
     try:
         cliente = IPClient.objects.get(ip_add=ip_client)
         selected_client = cliente.ipclientvisitas_set.get(pk=cliente.id)
@@ -37,7 +35,9 @@ def IndexView(request):
 
     return render(request, template_name, {'ip_client' : ip_client})
 
-    
+
+class YouTubeView(generic.TemplateView):
+    template_name: str = "portafolio/youtube/yt.html"    
     
 class AtributionView(generic.TemplateView):
     template_name: str = "terceros/atribucion.html"
