@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!--Datos básicos de la página-->
+        <title>Politicas de Privacidad</title>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Al utilizar este sitio web, usted acepta estas Politicas de Privacidad"/>
+        <meta name="keywords" content="politicas de privacidad"/>
+        <meta name="author" content="Estuardo Ramírez"/>
+        <meta name="copyright" content="PROPIETARIO DEL SITIO WEB | © 2022 Estuardo Ramírez"/>
+
+        <!--RESPONSIVE-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Boostrap CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <!--Google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			  <div class="container-fluid">
+				<a class="navbar-brand" href="{% url 'portafolio:index' %}">Estuardo Ramírez</a>
+			  </div>
+			</nav>
+		</div>
+
+		<div class="container b">
+			<main>
+                <section id="section">
+
+                    <h1 _msthash="306332" _msttexthash="326521">POLÍTICA DE PRIVACIDAD</h1>
+                    <p><font _mstmutation="1" _msthash="306449" _msttexthash="219896794">El presente Política de Privacidad establece los términos en que
+                         usa y protégé la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está 
+                         comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual
+                          usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento. Sin embargo
+                           esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar
+                            continuamente esta página para asegurarse que está de acuerdo con dichos cambios</font> de {{url_name}}.</p>
+                    
+                    <p><strong _msthash="306566" _msttexthash="634751">Información que es recogida</strong></p>
+                    <p _msthash="306683" _msttexthash="52551551">Nuestro sitio web por el momento se ahorra la capacidad de recolectar información
+                        como Nombre, dirección, correo electrónico, etc. Debido a la falta de capacidad en nuestra infraestructura. Esto quiere decir que no
+                        se esta recopilando su información personal.
+                    </p>
+                   
+                    <p><strong _msthash="306800" _msttexthash="729300">Uso de la información recogida</strong></p>
+                    <p _msthash="306917" _msttexthash="186415242">Nuestro sitio web emplea la información con el fin de proporcionar el mejor servicio posible, 
+                        actualmente su información procesada es su tiempo de navegacion en nuestra web.
+                         &nbsp;</p>
+                    <p>{{url_name}}<font _mstmutation="1" _msthash="307034" _msttexthash="27789645"> está altamente comprometido para cumplir con el compromiso de
+                         mantener su información segura. Usamos los sistemas más avanzados y los actualizamos constantemente para asegurarnos que no exista 
+                         ningún acceso no autorizado.</font></p>
+                   
+                    
+                    <p><strong _msthash="330447" _msttexthash="313495">Enlaces a Terceros</strong></p>
+                    <p _msthash="330577" _msttexthash="128336013">Este sitio web pudiera contener enlaces a otros sitios que pudieran ser de su interés.
+                         Una vez que usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al que es redirigido y
+                          por lo tanto no somos responsables de los términos o privacidad ni de la protección de sus datos en esos otros sitios terceros. 
+                          Dichos sitios están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que 
+                          usted está de acuerdo con estas.</p>
+                   
+                    <p><strong _msthash="330707" _msttexthash="948467">Control de su información personal</strong></p>
+                    <p _msthash="330837" _msttexthash="91537901">En cualquier momento usted puede restringir la recopilación o el uso de la información
+                         personal que es proporcionada a nuestro sitio web.&nbsp; Cada vez que se le solicite rellenar un formulario, como el de alta de 
+                         usuario, puede marcar o desmarcar la opción de recibir información por correo electrónico. &nbsp;En caso de que haya marcado la 
+                         opción de recibir nuestro boletín o publicidad usted puede cancelarla en cualquier momento.</p>
+                    <p _msthash="330967" _msttexthash="16176953">Esta compañía no venderá, cederá ni distribuirá la información personal que es recopilada 
+                        sin su consentimiento, salvo que sea requerido por un juez con un orden judicial.</p>
+                    
+                    <p>{{url_name}}<font _mstmutation="1" _msthash="331097" _msttexthash="6337461"> Se reserva el derecho de cambiar los términos de la presente 
+                        Política de Privacidad en cualquier momento.</font></p>
+                    </section>
+			</main>
+		</div>
+        <br >
+        <!--FOOTER-->
+        <div class="container">
+            <footer class="py-3 my-4">
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="{% url 'legal:terminos' %}" class="nav-link px-2 text-muted">Términos</a></li>
+                <li class="nav-item"><a href="{% url 'legal:cookies' %}" class="nav-link px-2 text-muted">Cookies</a></li>
+              </ul>
+              <p class="text-center text-muted">© 2022 estuardodev | Estuardo Ramírez</p>
+            </footer>
+        </div>
+        <!-- Footer --> 
+
+        <!--Boostrap Script-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

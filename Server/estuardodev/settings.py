@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # PROPIAS
     'portafolio.apps.PortafolioConfig',
+    'legal.apps_legal.LegalConfig',
     
 ]
 
