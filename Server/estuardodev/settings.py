@@ -30,8 +30,8 @@ with open(debug_txt, 'r') as D:
     read_debug = D.read()'''
 DEBUG = False #read_debug
 
-# ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Local
-ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'sara.estuardodev.com'] # Production
+# ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
+ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Production
 
 
 # Application definition
