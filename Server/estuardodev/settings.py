@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 
     # PROPIAS
     'portafolio.apps.PortafolioConfig',
-    'cripto.cripto_apps',
     
 ]
 
