@@ -7,14 +7,14 @@
         <meta name="description" content="Soy Estuardo Ramírez un programador y desarrollador web, más enfocado en el ámbito del backend con Python.">
         <meta name="keywords" content="Estuardo Ramírez, estuardodev, Estuardo Ramirez, EstuardoDev, Estuardodev, Estuardo, Estuardo Guatemala, estuardodev sitio web, estuardodev portafolio, Ramírez, Programador en Python, Desarrollador web, estuardodev Programador">
 
-        <!--Boostrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        
         <!--Obligatorios-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <link rel="icon" href="{% static 'portafolio/img/estuardodev.webp' %}">
         <link rel="apple-touch-icon" href="{% static 'portafolio/img/estuardodev.webp' %}">
+
+        <!--Boostrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
         <!--Estilos Propios-->
         <link rel="stylesheet" type="text/css" href="{% static 'portafolio/css/style.css' %}">
@@ -50,7 +50,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#about">Acerca de mi</a>
+                    <a class="nav-link" href="#about">Acerca de mí</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#proyects">Proyectos</a>
@@ -65,7 +65,7 @@
               </div>
             </div>
           </nav>
-          <img src="{% static 'portafolio/img/portafolio.webp' %}" width="" class="portada" alt="Imagen de Estuardo Ramírez" srcset="{% static 'portafolio/img/portafolio.webp' %} 1297w, {% static 'portafolio/img/portafolio.webp' %} 800w, {% static 'portafolio/img/portafolio.webp' %} 400w, {% static 'portafolio/img/portafolio.webp' %} 350w, {% static 'portafolio/img/portafolio.webp' %} 250w">
+          <img src="{% static 'portafolio/img/portafolio.webp' %}" width="" class="portada" alt="Imagen de portada web de Estuardo Ramírez" srcset="{% static 'portafolio/img/portafolio.webp' %} 1297w, {% static 'portafolio/img/portafolio.webp' %} 800w, {% static 'portafolio/img/portafolio.webp' %} 400w, {% static 'portafolio/img/portafolio.webp' %} 350w, {% static 'portafolio/img/portafolio.webp' %} 250w">
 
           <!--Acerca de mi-->
           
@@ -79,7 +79,7 @@
                 <img src="{% static 'portafolio/img/estuardodev.webp' %}" width="" class="imgabout" alt="Fotografía de Estuardo Ramírez, estuardodev">
                 <p><b>¡Soy Estuardo Ramírez un gusto tenerte por acá! Te hablaré sobre mí.</b></p>
               </div>
-              <p>Soy un joven Guatemalteco apasionado por la programación y todo lo relacionado con el ambito de la tecnología,
+              <p class="justy">Soy un joven guatemalteco apasionado por la programación y todo lo relacionado con el ámbito de la tecnología,
                 empecé a muy temprana edad a interesarme por como funcionaban las computadoras y luego de eso fue donde empezó todo.
                 <br>
                 Uno de los primeros lenguajes que probé fue Java, me gusta mucho. Pero un lenguaje que me enamoró al final de todo fue Python.
@@ -87,24 +87,24 @@
                 facilidad de uso y su manera de funcionar.
                 <br>
                 Soy muy apasionado por todo lo que es programación y tecnología, me gusta mucho aprender cosas nuevas y más si eso me ayuda a 
-                mejorar como profesional y sobre todo como programador. Durante mi camino de aprendizaje tuve varias caídas, donde sentia que ya no podía más 
-                o peor aún, que esto no era para mi. Pero luego de esa etapa tan dura, logre aprender Python como un profesional, donde 
+                mejorar como profesional y sobre todo como programador. Durante mi camino de aprendizaje tuve varias caídas, donde sentía que ya no podía más 
+                o peor aún, que esto no era para mí. Pero luego de esa etapa tan dura, logre aprender Python como un profesional, donde 
                 ahora todo problema tiene solución.
                 <br>
                 Una de mis mayores emociones cuando empezaba a aprender a programar, era el poder crear juegos o programas que cambiaran el sistema.
-                Luego de eso, se aclararón mis ideas y hoy en día, mis emociones están dirigidas a todo lo que esta relacionado con el backend, no para cambiar el sistema, mas 
+                Luego de eso, se aclararon mis ideas y hoy en día, mis emociones están dirigidas a todo lo que está relacionado con el Backend, no para cambiar el sistema, más 
                 bien, para mejorar el sistema.
               </p>
               <p>
                 Soy un programador en Python, pero también tengo más conocimientos que pueden ser útiles en cualquier momento como:
                 <br>
                 <ul>
-                  <li>Desarrollo de sitios web con HTML, CSS, JS</li>
-                  <li>Desarrollo de aplicaciones android con Java</li>
+                  <li>Desarrollo Backend con Python</li>
+                  <li>Desarrollo de Sitios Web</li>
                   <li>Manejo de distintos sistemas operativos como Linux, Windows</li>
                   <li>Conocimiento de Git y GitHub</li>
-                  <li>Programación con .NET y Visual Basic</li>
-                  <li>Utilización de Base de Datos MySql</li>
+                  <li>Programación con Java</li>
+                  <li>Utilización de Base de Datos Relacionales</li>
                 </ul>
               </p>
             </div>
@@ -176,7 +176,7 @@
 
               <h1>¿Por qué contratarme?</h1>
               <div class="container">
-                <p>Se que puede que te preguntes, ¿por qué contratar a Estuardo?, te dare unos motivos para que veas porque puedo ser un buen contrato.</p>
+                <p>Se que puede que te preguntes, ¿por qué contratar a Estuardo?, te daré unos motivos para que veas porque puedo ser un buen contrato.</p>
               </div>
                 <div class="container">
 
@@ -240,7 +240,7 @@
                 <p><b>En esta sección encontraras las certificaciones que he obtenido.</b></p>
               </div>
               <div class="container">
-                <p>Estas certificaciones son certificadas por la plataforma de educación en línea más grande de latinoamérica Platzi. <a href="https://platzi.com/blog/que-es-platzi/" target="_blank">Acerca de Platzi</a></p>
+                <p>Estas certificaciones son certificadas por la plataforma de educación en línea más grande de Latinoamérica Platzi. <a href="https://platzi.com/blog/que-es-platzi/" target="_blank">Acerca de Platzi</a></p>
               </div>
               <br>
                 <div class="row"> 

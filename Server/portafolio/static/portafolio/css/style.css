@@ -114,6 +114,9 @@
         padding-left: 30px;
         padding-bottom: 30px;
     }
+    .justy{
+        text-align: justify;
+    }
 
 }
 
@@ -136,6 +139,9 @@
         padding-left: 30px;
         padding-bottom: 30px;
     }
+    .justy{
+        text-align: justify;
+    }
 }
 
 @media only screen and (min-width: 1281px) {
@@ -156,6 +162,9 @@
     .c{
         padding-left: 30px;
         padding-bottom: 30px;
+    }
+    .justy{
+        text-align: justify;
     }
 }
 
@@ -178,6 +187,9 @@
     .c{
         padding-left: 30px;
         padding-bottom: 30px;
+    }
+    .justy{
+        text-align: justify;
     }
 
 }
@@ -205,6 +217,9 @@
         padding-left: 30px;
         padding-bottom: 30px;
     }
+    .justy{
+        text-align: justify;
+    }
 }
 
 
@@ -230,6 +245,9 @@
         padding-left: 30px;
         padding-bottom: 30px;
     }
+    .justy{
+        text-align: justify;
+    }
 }
 
 @media only screen and (min-width: 375px), (max-width: 413px){
@@ -253,6 +271,9 @@
     .c{
         padding-left: 35px;
         padding-bottom: 30px;
+    }
+    .justy{
+        text-align: justify;
     }
 }
 
