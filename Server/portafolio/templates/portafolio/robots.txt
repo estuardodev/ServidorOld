@@ -2,6 +2,8 @@ User-Agent: *
 Disallow: /terceros
 Disallow: /terceros/atribucion.html
 Disallow: /blog.html
-Disallow: /legal/*
+Disallow: /legal/terminos-y-condiciones
+Disallow: /legal/cookies
+Disallow: /legal/politicas-de-privacidad
 
 Sitemap: https://estuardodev.com/sitemap.xml
