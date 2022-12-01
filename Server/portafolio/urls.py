@@ -5,5 +5,6 @@ app_name = 'portafolio'
 
 urlpatterns = [
     path('', views.IndexView, name="index"),
+    path('download_cv/', views.DownloadView, name="download_cv"),
     path('youtube/', views.YouTubeView.as_view(), name="youtube")
 ]
