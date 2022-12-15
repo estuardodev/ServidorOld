@@ -31,7 +31,7 @@ with open(debug_txt, 'r') as D:
 DEBUG = False #read_debug
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
-ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Production
+ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
 
 
 # Application definition
