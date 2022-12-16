@@ -32,7 +32,7 @@ DEBUG = False #read_debug
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
 ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
-CSRF_TRUSTED_ORIGINS = ['https://estuardodev.com/estuardodev_admin_site']
+CSRF_TRUSTED_ORIGINS = ['https://estuardodev.com']
 
 # Application definition
 
