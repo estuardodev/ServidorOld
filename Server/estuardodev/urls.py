@@ -24,7 +24,7 @@ from portafolio.views import Error404View, Error500View, AtributionView
 
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('estuardodev_admin_site/', admin.site.urls),
     # Path sitios
     path('', include('portafolio.urls')),
     path('legal/', include('legal.urls')),

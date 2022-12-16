@@ -2,6 +2,8 @@
 from django.urls import path
 from django.views.generic.base import TemplateView
 from django.conf.urls import handler404, handler500
+from django.conf import settings
+from django.conf.urls.static import static
 
 # MODULO PROPIO
 from . import views
@@ -21,3 +23,5 @@ urlpatterns = [
 # MANEJO DE ERRORES HTTP
 handler404 = views.Error404.as_view() # Error 404
 handler500 = views.Error500.as_view() # Error 500
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
