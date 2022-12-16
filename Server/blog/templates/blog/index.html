@@ -205,13 +205,13 @@
                 {% if a.id > resta %}
                 <div class="col">
                     <div class="card h-100">
-                        <img src="media/{{a.imagen}}" class="card-img-top" alt="{{a.alt_image}}">
+                        <img src="media/{{a.imagen}}" class="card-img-top" alt="{{a.alt_imagen}}">
                         <div class="card-body">
                             <h5 class="card-title">{{ a.titulo }}</h5>
                             <div class="card-text limitado" >{{ a.contenido }}</div>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Creado: {{a.created_at}}</small>
+                            <small class="text-muted">Creado: {{a.creado_el}}</small>
                         </div>
                         <a href="{{a.url}}" class="btn btn-primary">Leer más</a>
                     </div>

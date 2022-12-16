@@ -13,9 +13,8 @@ urlpatterns = [
     path('', views.indexView, name='IndexView'),
     path('articulo/Bienvenida/', views.BienvenidaView, name="BienvenidaView"),
     # SEO
-    path('robots.txt', TemplateView.as_view(template_name="blog/robots.txt", content_type="text/plain")),
-    path('ads.txt', TemplateView.as_view(template_name="blog/ads.txt", content_type="text/plain")),
-    path('sitemap.xml', TemplateView.as_view(template_name="blog/sitemap.xml", content_type="text/xml")),
+    path('robots.txt', views.RobotsView.as_view()),
+    path('sitemap.xml', views.SitemapView.as_view()),
     
     
     #path('BingSiteAuth.xml', TemplateView.as_view(template_name="portafolio/BingSiteAuth.xml", content_type="text/xml")),

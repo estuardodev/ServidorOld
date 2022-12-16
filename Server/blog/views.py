@@ -18,6 +18,22 @@ def BienvenidaView(request):
     return render(request, 'blog/articulo/bienvenida.html', {'articulo': articulo})
 
 
+# SEO
+class RobotsView(generic.TemplateView):
+    template_name="blog/robots.txt"
+    content_type="text/plain"
+
+class SitemapView(generic.TemplateView):
+    template_name="blog/sitemap.xml"
+    content_type="text/xml"
+    data = Articulo.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['articulos'] = self.data
+        return context
+
+# ERRORES
 class Error404(generic.TemplateView):
     template_name: str = "error/404/404.html"
 
