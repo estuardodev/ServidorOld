@@ -10,8 +10,13 @@ def indexView(request):
     articulos2 = Articulo.objects.all().count()
     
     resta = articulos2 - 6
-    print(resta)
     return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta})
+
+def BienvenidaView(request):
+    articulo = Articulo.objects.filter(id=1)
+    print(articulo)
+    return render(request, 'blog/articulo/bienvenida.html', {'articulo': articulo})
+
 
 class Error404(generic.TemplateView):
     template_name: str = "error/404/404.html"
