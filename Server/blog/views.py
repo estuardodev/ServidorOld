@@ -19,10 +19,12 @@ def BienvenidaView(request):
 
 class ChatGPT3View(generic.TemplateView):
     template_name="blog/articulo/ChatGPT3View.html"
-    content_type="text/html"
     articulo = Articulo.objects.filter(id=2)
 
-    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['articulo'] = self.articulo
+        return context
 
 # SEO
 class RobotsView(generic.TemplateView):
