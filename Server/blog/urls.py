@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 # MODULO PROPIO
 from . import views
 
-urlpatterns = [
+urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     # SITIO
     path('', views.indexView, name='IndexView'),
     path('articulo/Bienvenida/', views.BienvenidaView, name="BienvenidaView"),
@@ -25,5 +25,3 @@ urlpatterns = [
 # MANEJO DE ERRORES HTTP
 handler404 = views.Error404.as_view() # Error 404
 handler500 = views.Error500.as_view() # Error 500
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
