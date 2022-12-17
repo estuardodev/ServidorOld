@@ -50,7 +50,7 @@
                         <img src="media/{{a.imagen}}" class="card-img-top" alt="{{a.alt_imagen}}">
                         <div class="card-body">
                             <h5 class="card-title">{{ a.titulo }}</h5>
-                            <div class="card-text limitado" >{{ a.contenido }}</div>
+                            <div class="card-text limitado" >{{ a.contenido |safe}}</div>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">Creado: {{a.creado_el}}</small>
