@@ -13,6 +13,8 @@ urlpatterns = [
     path('', views.indexView, name='IndexView'),
     path('articulo/Bienvenida/', views.BienvenidaView, name="BienvenidaView"),
     path('articulo/chatgpt3-la-herramienta-de-chatbot-mas-avanzada-de-openai/', views.ChatGPT3View, name="ChatGPT3View"),
+    path('/articulo/inflacion-y-recesion-que-afectan-al-mundo-2022/', views.InflacionRecesion2022, name="InflaRece2022"),
+
     # SEO
     path('robots.txt', views.RobotsView.as_view()),
     path('sitemap.xml', views.SitemapView.as_view()),

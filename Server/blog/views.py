@@ -20,6 +20,10 @@ def ChatGPT3View(request):
     articulo = Articulo.objects.filter(id=2)
     return render(request, 'blog/articulo/ChatGPT3View.html', {'articulo': articulo})
 
+def InflacionRecesion2022(request):
+    articulo = Articulo.objects.filter(id=3)
+    return render(request, 'blog/articulo/InflaRece2022.html', {'articulo': articulo})
+
 # SEO
 class RobotsView(generic.TemplateView):
     template_name="blog/robots.txt"
