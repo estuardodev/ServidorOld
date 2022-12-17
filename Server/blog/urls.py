@@ -16,9 +16,7 @@ urlpatterns = [
     # SEO
     path('robots.txt', views.RobotsView.as_view()),
     path('sitemap.xml', views.SitemapView.as_view()),
-    
-    
-    #path('BingSiteAuth.xml', TemplateView.as_view(template_name="portafolio/BingSiteAuth.xml", content_type="text/xml")),
+    path('BingSiteAuth.xml', TemplateView.as_view(template_name="blog/BingSiteAuth.xml", content_type="text/xml")),
 ]
 
 
