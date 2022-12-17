@@ -4,6 +4,8 @@ from django.db import models
 class Articulo(models.Model):
     titulo = models.CharField(max_length=150)
     contenido = models.TextField(max_length=5000)
+    tags = models.CharField(max_length=400)
+    description = models.CharField(max_length=160)
     url = models.CharField(max_length=500)
     creado_el = models.DateTimeField(auto_now_add=True, null=True)
     creado = models.DateField(auto_now_add=True, null=True)

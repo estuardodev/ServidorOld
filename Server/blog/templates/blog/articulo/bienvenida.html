@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% for articulo in articulo %}
     <title>{{articulo.titulo}}</title>
+    <meta name="description" content="{{articulo.description}}">
+    <meta name="keywords" content="{{articulo.tags}}">
     {% endfor %}
     <!--Estilo Reset-->
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/reset.css' %}">
