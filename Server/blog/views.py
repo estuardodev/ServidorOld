@@ -28,12 +28,7 @@ class RobotsView(generic.TemplateView):
 class SitemapView(generic.TemplateView):
     template_name="blog/sitemap.xml"
     content_type="text/xml"
-    data = Articulo.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['articulos'] = self.data
-        return context
 
 # ERRORES
 class Error404(generic.TemplateView):
