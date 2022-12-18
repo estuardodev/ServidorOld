@@ -8,9 +8,10 @@ from .models import Articulo
 def indexView(request):
     articulos = Articulo.objects.all().order_by('-id')
     articulos2 = Articulo.objects.all().count()
+    img = Articulo.objects.filter(id=1)
     
     resta = articulos2 - 6
-    return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta})
+    return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta, 'img':img})
 
 def BienvenidaView(request):
     articulo = Articulo.objects.filter(id=1)
