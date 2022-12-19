@@ -24,6 +24,10 @@ def ChatGPT3View(request):
 def InflacionRecesion2022(request):
     articulo = Articulo.objects.filter(id=3)
     return render(request, 'blog/articulo/InflaRece2022.html', {'articulo': articulo})
+    
+def InflacionRecesion2022(request):
+    articulo = Articulo.objects.filter(id=4)
+    return render(request, 'blog/articulo/vacunaCancer.html', {'articulo': articulo})
 
 # SEO
 class RobotsView(generic.TemplateView):
