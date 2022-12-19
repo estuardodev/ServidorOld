@@ -9,6 +9,8 @@ from django.contrib.sitemaps.views import sitemap
 from . import views
 from .sitemaps import MapaDeSitio
 
+handler404 = 'blog.views.handler404'
+
 sitemaps = {
     'blog': MapaDeSitio
 }
