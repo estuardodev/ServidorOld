@@ -31,8 +31,10 @@ class SitemapView(generic.TemplateView):
 
 
 # ERRORES
-class Error404(generic.TemplateView):
+def Error404(request):
     template_name: str = "error_blog/404/404.html"
+    return render(request, template_name, status=404)
 
-class Error500(generic.TemplateView):
+def Error500(request):
     template_name: str = "error_blog/500/500.html"
+    return render(request, template_name, status=500)
