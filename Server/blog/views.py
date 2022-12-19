@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse # Respuesta HTTP
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404 # Respuesta HTTP
 from django.views import generic
 
 from .models import Articulo
@@ -9,25 +9,16 @@ def indexView(request):
     articulos = Articulo.objects.all().order_by('-id')
     articulos2 = Articulo.objects.all().count()
     img = Articulo.objects.filter(id=1)
-    
     resta = articulos2 - 6
     return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta, 'img':img})
 
-def BienvenidaView(request):
-    articulo = Articulo.objects.filter(id=1)
-    return render(request, 'blog/articulo/bienvenida.html', {'articulo': articulo})
-
-def ChatGPT3View(request):
-    articulo = Articulo.objects.filter(id=2)
-    return render(request, 'blog/articulo/ChatGPT3View.html', {'articulo': articulo})
-
-def InflacionRecesion2022(request):
-    articulo = Articulo.objects.filter(id=3)
-    return render(request, 'blog/articulo/InflaRece2022.html', {'articulo': articulo})
-    
-def NuevaVacunaCancer(request):
-    articulo = Articulo.objects.filter(id=4)
-    return render(request, 'blog/articulo/vacunaCancer.html', {'articulo': articulo})
+def ArticuloView(request, url:str, id:int):
+    articule = get_object_or_404(Articulo, id=id)
+    try: 
+        articulo = Articulo.objects.filter(id=id)
+        return render(request, 'blog/articulo/articulo.html', {'articulo': articulo})
+    except Articulo.DoesNotExist:
+        return Http404  
 
 # SEO
 class RobotsView(generic.TemplateView):
@@ -41,7 +32,7 @@ class SitemapView(generic.TemplateView):
 
 # ERRORES
 class Error404(generic.TemplateView):
-    template_name: str = "error/404/404.html"
+    template_name: str = "error_blog/404/404.html"
 
 class Error500(generic.TemplateView):
-    template_name: str = "error/500/500.html"
+    template_name: str = "error_blog/500/500.html"
