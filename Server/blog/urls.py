@@ -1,7 +1,6 @@
 # DJANGO
 from django.urls import path
 from django.views.generic.base import TemplateView
-from django.conf.urls import handler404, handler500
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
