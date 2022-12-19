@@ -17,7 +17,7 @@ def ArticuloView(request, url:str, id:int):
     try: 
         articulo = Articulo.objects.filter(id=id)
         return render(request, 'blog/articulo/articulo.html', {'articulo': articulo})
-    except Articulo.DoesNotExist:
+    except (KeyError, Articulo.DoesNotExist):
         return Http404  
 
 # SEO
