@@ -28,4 +28,4 @@ urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
 
 
 # MANEJO DE ERRORES HTTP
- # Error 500
+handler404 = views.Error404 # Error 500
