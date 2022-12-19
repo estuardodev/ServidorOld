@@ -3,3 +3,5 @@ virtualenv/
 *__pycache__
 debug.txt
 media/
+converter.py
+images_converter/

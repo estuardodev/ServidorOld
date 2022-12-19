@@ -10,9 +10,9 @@
     {% for articulo in articulo %}
     <title>{{articulo.titulo}}</title>
     <meta name="description" content="{{articulo.description}}">
-    <meta name="keywords" content="../../media/{{articulo.imagen}}">
+    <meta name="keywords" content="{{articulo.tags}}">
     <link rel="icon" href="../../media/{{articulo.imagen}}">
-    <link rel="apple-touch-icon" href="media/{{articulo.imagen}}">
+    <link rel="apple-touch-icon" href="../../media/{{articulo.imagen}}">
     {% endfor %}
     <!--Estilo Reset-->
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/reset.css' %}">
