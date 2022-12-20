@@ -8,7 +8,7 @@
         {% for a in data %}
             <item>
                 <title>{{a.titulo}}</title>
-                <link>{{a.url}}/{{a.id}}</link>
+                <link>https://blog.estuardodev.com{{a.url}}/{{a.id}}</link>
                 <description><![CDATA [<img width=260px src="../media/{{a.image}}">]]{{a.descipct}}</description>
                 <pubDate>{{a.creado|date:'d-m-y'}}</pubDate>
             </item>
