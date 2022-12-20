@@ -27,21 +27,20 @@ SECRET_KEY = 'django-insecure-*5)r*hu5^1=2d@8&xex-#1=e5$sri+k+p2ap83=01!zyj!d_da
 # SECURITY WARNING: don't run with debug turned on in production!
 debug_txt = os.path.join(BASE_DIR, 'debug.txt')
 with open(debug_txt, 'r') as D:
-    read_debug = D.readline(1)
-    
-if '1' in read_debug:
-    entorno = True
-else:
-    entorno = False
+    read_debug = D.read()
+lista = list(read_debug)
 
+for i in lista:
+
+    if i == '0':
+        entorno = True
+    else:
+        entorno = False
 
 if entorno == True:
     DEBUG = False
 else:
     DEBUG = True
-
-print('TXT: ',txt)
-print('DEBUG: ',str(DEBUG))
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
 ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
