@@ -10,7 +10,7 @@
                 <title>{{a.titulo}}</title>
                 <link>{{a.url}}</link>
                 <description>{{a.descipct}}</description>
-                <pubDate>20{{a.creado|date:'y-m-d'}}</pubDate>
+                <pubDate>20{{a.creado}}</pubDate>
             </item>
         {% endfor %}
     </channel>
