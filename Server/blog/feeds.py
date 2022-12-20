@@ -1,7 +1,8 @@
-from django.contrib.syndication.views import Feed, FeedGenerator
-from .models import Articulo
+from django.contrib.syndication.views import Feed
+from django.urls import reverse
+from blog.models import Articulo
 
-class UltimasNoticiasFeed(Feed):
+class UltimasNoticias(Feed):
     title = "Ciencia y Tecnología"
     link = "/feed/"
     description = "Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente."
@@ -13,7 +14,8 @@ class UltimasNoticiasFeed(Feed):
         return item.titulo
 
     def item_description(self, item):
-        return item.contenido
+        return item.description
 
+    # item_link is only needed if NewsItem has no get_absolute_url method.
     def item_link(self, item):
-        return f"{item.url}/{item.id}/"
+        return f'{item.url}/{item.id}'
