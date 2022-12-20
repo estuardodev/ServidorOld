@@ -11,4 +11,4 @@ class MapaDeSitio(Sitemap):
         return obj.creado
         
     def location(self,obj):
-        return '%s' % (obj.url)
+        return '%s' % obj.url + '/' + str(obj.id)
