@@ -32,7 +32,8 @@ with open(debug_txt, 'r') as D:
 txt = read_debug
 txt = bool(txt)
 DEBUG = txt #read_debug
-
+print( 'DEBUG ES:' + str(DEBUG))
+print(type(DEBUG))
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
 ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
