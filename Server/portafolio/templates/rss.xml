@@ -8,7 +8,7 @@
         {% for a in data %}
             <item>
                 <title>{{a.titulo}}</title>
-                <link>{{a.url}}</link>
+                <link>{{a.url}}/{{a.id}}</link>
                 <description>{{a.descipct}}</description>
                 <pubDate>{{a.creado|date:'d-m-y'}}</pubDate>
             </item>
