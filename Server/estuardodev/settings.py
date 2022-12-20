@@ -29,6 +29,7 @@ debug_txt = os.path.join(BASE_DIR, 'debug.txt')
 with open(debug_txt, 'r') as D:
     read_debug = D.read()
 lista = list(read_debug)
+lista.pop()
 print(lista)
 print(type(lista))
 
