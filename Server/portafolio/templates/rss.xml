@@ -4,7 +4,7 @@
         <title>Blog | Estuardo Ramírez</title>
         <link>https://blog.estuardodev.com</link>
         <description>Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente.</description>
-        <pubDate>2022-12-16</pubDate>
+        <pubDate>22-12-16</pubDate>
         {% for a in data %}
             <item>
                 <title>{{a.titulo}}</title>
