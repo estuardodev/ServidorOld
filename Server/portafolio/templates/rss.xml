@@ -10,7 +10,7 @@
                 <title>{{a.titulo}}</title>
                 <link>{{a.url}}</link>
                 <description>{{a.descipct}}</description>
-                <pubDate>{% {{a.creado}}|"%B %d, %Y %I:%M:%S %Z", tz="America/Guatemala" %}</pubDate>
+                <pubDate>{{a.creado|date"%B %d, %Y %I:%M:%S %Z", tz="America/Guatemala"}}</pubDate>
             </item>
         {% endfor %}
     </channel>
