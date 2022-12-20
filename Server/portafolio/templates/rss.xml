@@ -9,7 +9,7 @@
             <item>
                 <title>{{a.titulo}}</title>
                 <link>https://blog.estuardodev.com{{a.url}}/{{a.id}}</link>
-                <description><![CDATA [<img width=260px src="../media/{{a.image}}">]]{{a.descipct}}</description>
+                <description>{{a.descipct}}</description>
                 <pubDate>{{a.creado|date:'d-m-y'}}</pubDate>
             </item>
         {% endfor %}
