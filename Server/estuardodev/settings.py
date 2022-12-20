@@ -25,7 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*5)r*hu5^1=2d@8&xex-#1=e5$sri+k+p2ap83=01!zyj!d_da'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+debug_txt = os.path.join(BASE_DIR, 'debug.txt')
+with open(debug_txt, 'r') as D:
+    read_debug = D.read().strip()
+    txt = bool(read_debug)
+
+DEBUG = txt
+print(type(txt), txt)
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
 ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
