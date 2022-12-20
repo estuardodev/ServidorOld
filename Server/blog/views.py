@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404 # Respuesta HTTP
 from django.views import generic
+from django.db.models import Q
 
 from .models import Articulo
 
@@ -10,6 +11,13 @@ def indexView(request):
     articulos2 = Articulo.objects.all().count()
     img = Articulo.objects.filter(id=1)
     resta = articulos2 - 6
+    search = request.GET.get('search')
+    if search:
+        articulos = Articulo.objects.filter(
+            Q(titulo__icontains=search) |
+            Q(tags__icontains=search) |
+            Q(creado__icontains=search) 
+        ).distinct()
     return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta, 'img':img})
 
 def ArticuloView(request, url:str, id:int):
