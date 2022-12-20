@@ -19,10 +19,6 @@ class UltimasNoticias(Feed):
     def item_pubdate(self, item):
         return item.creado_el
 
-    def item_categories(self, item):
-        lista = list(item.tags)
-        return item
-
     # item_link is only needed if NewsItem has no get_absolute_url method.
     def item_link(self, item):
         return f'{item.url}/{item.id}'
