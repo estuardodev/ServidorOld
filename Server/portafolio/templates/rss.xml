@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
-    <channel>
-        <title>Blog | Estuardo Ramírez</title>
-        <link>https://blog.estuardodev.com</link>
-        <description>Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente.</description>
-        {% for a in data %}
-            <item>
-                <title>{{a.titulo}}</title>
-                <link>{{a.url}}</link>
-                <description>{{a.description}}</description>
-            </item>
-        {% endfor %}
-    </channel>
+rss version="2.0">
+<channel>
+    <title>Blog | Estuardo Ramírez</title>
+    <link>https://blog.estuardodev.com</link>
+    <description>Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente.</description>
+    <item>
+        <title>Bienvenidos</title>
+        <link>/articulo/Bienvenida</link>
+        <description>Hola, un gusto tenerte por este lugar, soy Estuardo Ramírez (@estuardodev), propietario de este sitio web, te doy la genial bienvenida a mi nuevo blog.</description>
+    </item>
+    <item>
+        <title>ChatGPT3: la herramienta de chatbot avanzada basada en el modelo GPT-3 de OpenAI</title>
+        <link>/articulo/chatgpt3-la-herramienta-de-chatbot-mas-avanzada-de-openai</link>
+        <description>Chatbot utiliza tecnología de inteligencia artificial y procesamiento del lenguaje natural para brindar una interfaz conversacional amigable y eficiente para los usuarios. Chatbot está disponible las 24 horas del día, los 7 días de la semana, ofreciendo un servicio de atención al cliente rápido y preciso.</description>
+    </item>
+    <item>
+        <title>Cómo la inflación y la recesión están afectando al mundo y qué se está haciendo al respecto</title>
+        <link>/articulo/inflacion-y-recesion-que-afectan-al-mundo-2022</link>
+        <description>La inflación es un aumento generalizado y sostenido en los precios de los bienes y servicios en una economía. La recesión es un período de declive económico, generalmente marcado por una disminución del PIB, el aumento del desempleo y una disminución de la actividad comercial. Ambas pueden tener un impacto significativo en las personas y las empresas.</description>
+    </item>
+    <item>
+        <title>La esperanza de una cura: la nueva vacuna contra el cáncer avanza en su desarrollo</title>
+        <link>/articulo/nueva-vacuna-contra-el-cancer-avances-y-esperanza</link>
+        <description>¡La esperanza de una cura para el cáncer podría estar cada vez más cerca! La nueva vacuna contra el cáncer se basa en la inmunoterapia y es capaz de estimular la respuesta inmune del cuerpo de forma específica y menos tóxica que otros tratamientos. Aunque aún es muy pronto para decir si será una solución definitiva.</description>
+    </item>
+    <item>
+        <title>Ex CEO de FTX acepta ser extraditado a EEUU</title>
+        <link>/articulo/ex-ceo-ftx-sam_bankman-extraditado-a-eeuu</link>
+        <description>El Fundador y ex CEO de la plataforma de criptomonedas FTX, Sam Bankman-Fried, fue detenido en Bahamas y accedió a ser extraditado</description>
+    </item>
+</channel>
 </rss>
