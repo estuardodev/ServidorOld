@@ -23,8 +23,20 @@ def indexView(request):
 def ArticuloView(request, url:str, id:int):
     articule = get_object_or_404(Articulo, id=id)
     try: 
-        articulo = Articulo.objects.filter(id=id)
-        return render(request, 'blog/articulo/articulo.html', {'articulo': articulo})
+        
+        search = request.GET.get('search')
+        if search:
+            articulo1 = Articulo.objects.filter(
+            Q(titulo__icontains=search) |
+            Q(tags__icontains=search) |
+            Q(creado__icontains=search) 
+            ).distinct()
+            articulo = {'search': articulo1 }
+        else:
+            articulos = Articulo.objects.filter(id=id)
+            articulo = {'articulo': articulos }
+
+        return render(request, 'blog/articulo/articulo.html', articulo)
     except (KeyError, Articulo.DoesNotExist):
         return Http404  
 

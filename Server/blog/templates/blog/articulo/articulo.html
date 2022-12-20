@@ -31,23 +31,53 @@
     <nav class="navbar bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Blog | Estuardo Ramírez</span>
+            <form class="d-flex" role="search" method="GET">
+                <input class="form-control me-2" type="search" name="search" value="{{request.GET.search}}" placeholder="Buscar..." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
         </div>
     </nav>
-    {% block content %}
-    {% for articulo in articulo %}
-    <div class="container">
-        <h1>{{articulo.titulo}}</h1>
-        <hr>
-        <div class="container">
-          <img src="../../media/{{articulo.imagen}}" width="" class="imgabout" alt="{{articulo.alt_imagen}}">
-          <p class="text-muted"><b>{{articulo.creado_el}}</b></p>
-        </div>
-        <div class="justy">
-            {{articulo.contenido |safe }}
-        </div>
-    </div>
-    {% endfor %}
-    {% endblock  %}
+    
+        {% if articulo %}
+            {% block content %}
+                {% for articulo in articulo %}
+                <div class="container">
+                    <h1>{{articulo.titulo}}</h1>
+                    <hr>
+                    <div class="container">
+                    <img src="../../media/{{articulo.imagen}}" width="" class="imgabout" alt="{{articulo.alt_imagen}}">
+                    <p class="text-muted"><b>{{articulo.creado_el}}</b></p>
+                    </div>
+                    <div class="justy">
+                        {{articulo.contenido |safe }}
+                    </div>
+                </div>
+                {% endfor %}
+            {% endblock  %}
+        {% endif %}
+        {% if search %}
+            {% block contents %}
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Busqueda</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for a in search %}
+                        <tr>
+                            <th scope="row">{{a.id}}</th>
+                            <td><a href="{{a.url}}/{{a.id}}">{{a.titulo}}</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% endblock  %}
+        {% endif %}
+        
+    
       
     <hr>
     <div class="container ads">
