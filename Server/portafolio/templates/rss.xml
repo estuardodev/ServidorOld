@@ -10,7 +10,7 @@
                 <title>{{a.titulo}}</title>
                 <link>https://blog.estuardodev.com{{a.url}}/{{a.id}}</link>
                 <description><![CDATA[<a href="https://blog.estuardodev.com{{a.url}}/{{a.id}}"><img width="560" height="280" src="../media/{{a.image}}" alt="{{a.alt_imagen}}" align="center" style="display: block;margin: 0 auto 20px;max-width:100%" /></a><p>{{a.description}}</p>
-                    <p><a href="https://www.criptonoticias.com/judicial/cae-banda-estafaba-bitcoin-haciendose-pasar-guardia-civil-espana/" rel="nofollow">Leer más</a></p>
+                    <p><a href="https://blog.estuardodev.com{{a.url}}/{{a.id}}" rel="nofollow">Leer más</a></p>
                     ]]></description>
                 <pubDate>{{a.creado|date:'d-m-y'}}</pubDate>
             </item>
