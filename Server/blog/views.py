@@ -23,7 +23,7 @@ def indexView(request):
 def ArticuloView(request, url:str, id:int):
     articule = get_object_or_404(Articulo, id=id)
     try: 
-        
+
         search = request.GET.get('search')
         if search:
             articulo1 = Articulo.objects.filter(
