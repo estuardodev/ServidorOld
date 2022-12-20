@@ -23,7 +23,7 @@ urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     # SEO
     path('robots.txt', views.RobotsView.as_view()),
     path('BingSiteAuth.xml', TemplateView.as_view(template_name="blog/BingSiteAuth.xml", content_type="text/xml")),
-    path('feed/', views.RssView.as_view()),
+    path('feed/', views.RssView),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 

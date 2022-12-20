@@ -48,13 +48,12 @@ class RobotsView(generic.TemplateView):
 class SitemapView(generic.TemplateView):
     template_name="blog/sitemap.xml"
     content_type="text/xml"
-
-class RssView(generic.TemplateView):
-    template_name="rss.xml"
-    content_type="text/xml"
-    context_object_name = 'data'
-    queryset = Articulo.objects.all()
     
+def RssView(request):
+    template_name="rss.xml"
+    data = Articulo.objects.all()
+    
+    return render(request, template_name, {'data':data}, content_type="text/xml")
 
 # ERRORES
 def handler404(request, exception=None):
