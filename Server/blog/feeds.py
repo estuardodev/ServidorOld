@@ -20,7 +20,8 @@ class UltimasNoticias(Feed):
         return item.creado_el
 
     def item_categories(self, item):
-        return item.tags
+        lista = list(item.tags)
+        return item
 
     # item_link is only needed if NewsItem has no get_absolute_url method.
     def item_link(self, item):
