@@ -38,7 +38,7 @@ def ArticuloView(request, url:str, id:int):
 
         return render(request, 'blog/articulo/articulo.html', articulo)
     except (KeyError, Articulo.DoesNotExist):
-        return Http404  
+        return render(request, 'blog/error_blog/404/404.html')
 
 # SEO
 class RobotsView(generic.TemplateView):
