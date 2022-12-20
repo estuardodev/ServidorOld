@@ -29,9 +29,10 @@ debug_txt = os.path.join(BASE_DIR, 'debug.txt')
 with open(debug_txt, 'r') as D:
     read_debug = D.read().strip()
     txt = bool(read_debug)
-
-DEBUG = txt
-print(type(txt), txt)
+if txt == True:
+    DEBUG = False
+else:
+    DEBUG = True
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
 ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
