@@ -52,15 +52,8 @@ class SitemapView(generic.TemplateView):
 class RssView(generic.TemplateView):
     template_name="rss.xml"
     content_type="text/xml"
-    data = Articulo.objects.all()
-    content = {'data': data}
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super(Articulo, self).get_context_data(**kwargs)
-        # Get the blog from id and add it to the context
-        context['data'] = self.data
-        return context
+    context_object_name = 'data'
+    queryset = Articulo.objects.all()
     
 
 # ERRORES
