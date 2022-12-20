@@ -16,9 +16,6 @@ class UltimasNoticias(Feed):
     def item_description(self, item):
         return item.description
 
-    def categories(self, item):
-        return item.tags
-
     # item_link is only needed if NewsItem has no get_absolute_url method.
     def item_link(self, item):
         return f'{item.url}/{item.id}'
