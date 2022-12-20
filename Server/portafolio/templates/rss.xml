@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Blog | Estuardo Ramírez</title>
+        <link>https://blog.estuardodev.com</link>
+        <description>Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente.</description>
+        {% for a in data %}
+            <item>
+                <title>{{a.titulo}}</title>
+                <link>{{a.url}}</link>
+                <description>{{a.description}}</description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

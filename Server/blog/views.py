@@ -49,6 +49,15 @@ class SitemapView(generic.TemplateView):
     template_name="blog/sitemap.xml"
     content_type="text/xml"
 
+class RssView(generic.TemplateView):
+    template_name="rss.xml"
+    content_type="text/xml"
+    data = Articulo.objects.all()
+    content = {'data': data}
+
+    def get_queryset(self):
+        return self.data
+    
 
 # ERRORES
 def handler404(request, exception=None):
