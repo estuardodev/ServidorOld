@@ -9,7 +9,7 @@ from django.contrib.sitemaps.views import sitemap
 # MODULO PROPIO
 from . import views
 from .sitemaps import MapaDeSitio
-from .feeds import UltimasNoticiasFeed
+from .feeds import UltimasNoticias
 
 sitemaps = {
     'blog': MapaDeSitio
