@@ -9,7 +9,7 @@
             <item>
                 <title>{{a.titulo}}</title>
                 <link>https://blog.estuardodev.com{{a.url}}/{{a.id}}</link>
-                <description><![CDATA[<a href="https://blog.estuardodev.com{{a.url}}/{{a.id}}"><img width="560" height="280" src="../media/{{a.image}}" alt="{{a.alt_imagen}}" align="center" style="display: block;margin: 0 auto 20px;max-width:100%" /></a><p>{{a.description}}</p>
+                <description><![CDATA[<a href="https://blog.estuardodev.com{{a.url}}/{{a.id}}"><img width="560" height="280" src="https://blog.estuardodev.com/media/{{a.image}}" alt="{{a.alt_imagen}}" align="center" style="display: block;margin: 0 auto 20px;max-width:100%" /></a><p>{{a.description}}</p>
                     <p><a href="https://blog.estuardodev.com{{a.url}}/{{a.id}}" rel="nofollow">Leer más</a></p>
                     ]]></description>
                 <pubDate>{{a.creado|date:'d-m-y'}}</pubDate>
