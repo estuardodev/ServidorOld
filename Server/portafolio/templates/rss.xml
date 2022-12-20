@@ -10,8 +10,7 @@
                 <title>{{a.titulo}}</title>
                 <link>{{a.url}}</link>
                 <description>{{a.descipct}}</description>
-                <pubDate>{{a.creado|date:'y-m-d'}}</pubDate>
-                <pubDate>{{a.creado|date:'%a, %d %B %Y %I:%M:%S %Z'}}</pubDate>    
+                <pubDate>{{a.creado|date:'y-m-d'}}</pubDate> 
                 Lunes, 06 Jan 2013 16:20:00 +0000
             </item>
         {% endfor %}
