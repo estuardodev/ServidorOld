@@ -8,7 +8,7 @@ class UltimasNoticias(Feed):
     description = "Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente."
 
     def items(self):
-        return Articulo.objects.order_by('-id')[:8]
+        return Articulo.objects.order_by('-id')[:6]
 
     def item_title(self, item):
         return item.titulo
