@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*5)r*hu5^1=2d@8&xex-#1=e5$sri+k+p2ap83=01!zyj!d_da'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-debug_txt = os.path.join(BASE_DIR, 'debug.txt')
+
+debug_txt = os.path.join(BASE_DIR, 'debug.txt') # Se necesita debug.txt en la carpeta /Servidor/Server/ 
 with open(debug_txt, 'r') as D:
     read_debug = D.read()
 lista = list(read_debug)
@@ -112,14 +113,28 @@ WSGI_APPLICATION = 'estuardodev.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+db = os.path.join(BASE_DIR, 'db.txt')
+with open(db, 'r') as D:
+    db_txt = D.read().split()
+
+lists = []
+for i in db_txt:
+    lists.append(i)
+    if i == 'MDB_Root_1':
+        lists.append(i)
+    else:
+        lists.insert(1,'')
+lists.pop()
+host = lists[0]
+password = lists[1]
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_app',
         'USER': 'root',
-        'PASSWORD': 'MDB_Root_1',
-        'HOST': 'localhost',
+        'PASSWORD': password,
+        'HOST': host,
         'PORT': 3306
     }
 }
