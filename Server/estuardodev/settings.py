@@ -113,7 +113,10 @@ WSGI_APPLICATION = 'estuardodev.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-db = os.path.join(BASE_DIR, 'db.txt')
+# Crear el archivo db.txt en la raíz del proyecto. 
+# LOCAL: Contiene host, pass, delete
+# PRO: Contiene host, pass
+db = os.path.join(BASE_DIR, 'db.txt') 
 with open(db, 'r') as D:
     db_txt = D.read().split()
 
