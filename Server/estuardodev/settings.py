@@ -30,24 +30,17 @@ with open(debug_txt, 'r') as D:
     read_debug = D.read()
 lista = list(read_debug)
 lista.pop()
-print(lista)
-print(type(lista))
 
 for i in lista:
-
     if i == '0':
         entorno = True
     else:
         entorno = False
-
-
 if entorno == True:
     DEBUG = False
 else:
     DEBUG = True
-print(type(lista))
 
-print('DEBUG: ',str(DEBUG))
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
 ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
