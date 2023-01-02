@@ -9,8 +9,8 @@
         <meta name="description" content="Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente.">
         <meta name="keywords" content="Blog Estuardo Ramirez, Noticias, Actualizaciones, Ultimas Noticias, Periodismo, Analisis, Informacion, Actualidad, Novedades, Reportajes, Articulos de noticias">
         {% for a in img %}
-        <link rel="icon" href="media/{{a.imagen}}">
-        <link rel="apple-touch-icon" href="media/{{a.imagen}}">
+        <link rel="icon" href="{% static 'blog/img/blogdev.png' %}">
+        <link rel="apple-touch-icon" href="{% static 'blog/img/blogdev.png' %}">
         {% endfor %}
 
         <!--Estilo Reset-->
