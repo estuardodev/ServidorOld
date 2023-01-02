@@ -33,7 +33,10 @@
         <!--NAVBAR-->
         <nav class="navbar bg-light">
             <section id="home"></section>
-            <div class="container-fluid">
+            <div class="container-fluid">   
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'blog/img/blogdev.png' %}" alt="Blog Dev Icon" width="30" height="24">
+                  </a>
                 <span class="navbar-brand mb-0 h1">Blog | Estuardo Ramírez</span>
                 <form class="d-flex" role="search" method="GET">
                     <input class="form-control me-2" type="search" name="search" value="{{request.GET.search}}" placeholder="Buscar..." aria-label="Search">
