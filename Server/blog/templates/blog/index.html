@@ -39,11 +39,11 @@
                         <img src="{% static 'blog/img/blogdev.png' %}" alt="Blog Dev Icon" width="30" height="24">
                     </a>
                     <span class="navbar-brand mb-0 h1">Blog | Estuardo Ramírez</span>
-                    <form class="d-flex" role="search" method="GET">
-                        <input class="form-control me-2" type="search" name="search" value="{{request.GET.search}}" placeholder="Buscar..." aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
                 </div>
+                <form class="d-flex" role="search" method="GET">
+                    <input class="form-control me-2" type="search" name="search" value="{{request.GET.search}}" placeholder="Buscar..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
             </div>
         </nav>
         
