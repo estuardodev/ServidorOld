@@ -13,12 +13,14 @@ def indexView(request):
     resta = articulos2 - 6
     search = request.GET.get('search')
     if search:
-        articulos = Articulo.objects.filter(
-            Q(titulo__icontains=search) |
-            Q(tags__icontains=search) |
-            Q(creado__icontains=search) 
+        articulo1 = Articulo.objects.filter(
+        Q(titulo__icontains=search) |
+        Q(tags__icontains=search) |
+        Q(creado__icontains=search) 
         ).distinct()
-    return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta, 'img':img})
+        articulo = {'search': articulo1 }
+        return render(request, 'blog/index.html', articulo)
+    return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta, 'img':img,})
 
 def ArticuloView(request, url:str, id:int):
     articule = get_object_or_404(Articulo, id=id)
