@@ -20,6 +20,11 @@ def indexView(request):
         ).distinct()
         articulo = {'search': articulo1 }
         return render(request, 'blog/index.html', articulo)
+    all = request.GET.get('all')
+    if all:
+        all = Articulo.objects.all().order_by('-id')
+        articulo = {'search': articulo1 }
+        return render(request, 'blog/index.html', articulo)
     return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta, 'img':img,})
 
 def ArticuloView(request, url:str, id:int):
