@@ -77,11 +77,10 @@
                             </div>
                             {% endif %}
                         {% endfor %}
-                        <div class="container">
-                            <form action="" method="get">
-                                <button type="submit" class="btn btn-warning" name="all">Warning</button>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-warning" name="all">Mostrar todo</button>
                             </form>
-                        </div>
                     {% endblock Listas %}
                 {% endif %}
 

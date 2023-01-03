@@ -20,7 +20,7 @@ def indexView(request):
         ).distinct()
         articulo = {'search': articulo1 }
         return render(request, 'blog/index.html', articulo)
-    all = request.GET.get('all')
+    all = request.POST.get('all')
     if all:
         all = Articulo.objects.all().order_by('-id')
         articulo = {'search': articulo1 }
