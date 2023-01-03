@@ -47,6 +47,11 @@ def ArticuloView(request, url:str, id:int):
     except (KeyError, Articulo.DoesNotExist):
         return render(request, 'blog/error_blog/404/404.html')
 
+def allView(request):
+    articulos = Articulo.objects.all().order_by('-id')
+    no = 1
+    return render(request, 'blog/all.html', {'all': articulos, 'no': no})
+
 # SEO
 class RobotsView(generic.TemplateView):
     template_name="blog/robots.txt"

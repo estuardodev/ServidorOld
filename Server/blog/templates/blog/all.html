@@ -12,6 +12,7 @@
         <link rel="icon" href="{% static 'blog/img/blogdev.png' %}">
         <link rel="apple-touch-icon" href="{% static 'blog/img/blogdev.png' %}">
         {% endfor %}
+        <meta name="robots" content="noindex">
 
         <!--Estilo Reset-->
         <link rel="stylesheet" type="text/css" href="{% static 'blog/css/reset.css' %}">
@@ -40,49 +41,42 @@
                     <span class="navbar-brand mb-0 h1">Blog | Estuardo Ramírez</span>
                 </a>
                 
-                <form class="d-flex" role="search" method="GET">
-                    <input class="form-control me-2" type="search" name="search" value="{{request.GET.search}}" placeholder="Buscar..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
         
         <!--TEXTO-->
         <div class="container">
             <h1>Bloque de artículos</h1><hr>
-            <p>¡Encuentra aquí los artículos más recientes!</p><hr>
+            <p>¡Encuentra aquí todos nuestros articulos!</p><hr>
+        </div>
+
+        <div class="container ads">
+            <br>
+            <h5>AD</h5>
+            <div class="text-center">
+                <script type="text/javascript">
+                    let navegador = navigator.userAgent;
+                    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+                    
+                    }else{
+                        atOptions = {
+                            'key' : 'b5d7c1fabc8a0681ed4e590a86b6bbd2',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                        };
+                        document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplayformat.com/b5d7c1fabc8a0681ed4e590a86b6bbd2/invoke.js"></scr' + 'ipt>');
+                    
+                    }
+                </script>
+            </div>
         </div>
 
         <!--MENUS-->
-        <div class="container">
-            
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                
-                {% if articulos %}
-                    {% block Listas %}
-                        {% for a in articulos %}
-                            {% if a.id > resta %}
-                            <div class="col">
-                                <div class="card h-100">
-                                    <img src="media/{{a.imagen}}" class="card-img-top" alt="{{a.alt_imagen}}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ a.titulo }}</h5>
-                                        <div class="card-text limitado" >{{ a.contenido |safe}}</div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Creado: {{a.creado_el}}</small>
-                                    </div>
-                                    <a href="{{a.url}}/{{a.id}}" class="btn btn-primary">Leer más</a>
-                                </div>
-                            </div>
-                            {% endif %}
-                        {% endfor %}
-                        <a class="btn btn-outline-warning btn-lg" href="all" role="button">Mostrar todo</a>
-                        
-                    {% endblock Listas %}
-                {% endif %}
+        <div class="container"> 
 
-                {% if search %}
+                {% if all %}
                     {% block contents %}
                             <table class="table">
                                 <thead>
@@ -93,12 +87,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for a in search %}
-                                <tr>
-                                    <th scope="row">{{a.id}}</th>
-                                    <td><a href="{{a.url}}/{{a.id}}">{{a.titulo}}</a></td>
-                                    <td>{{a.creado_el}}</td>
-                                </tr>
+                                {% for a in all %}
+                                    {% if a.id is not no %}
+                                    <tr>
+                                        <th scope="row">{{a.id}}</th>
+                                        <td><a href="{{a.url}}/{{a.id}}">{{a.titulo}}</a></td>
+                                        <td>{{a.creado_el}}</td>
+                                    </tr>
+                                    {% endif %}
                                 {% endfor %}
                             </table>
                         
