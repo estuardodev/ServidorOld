@@ -35,7 +35,7 @@
             <section id="home"></section>
             <div class="container-fluid">  
                  
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="https://blog.estuardodev.com">
                     <img src="{% static 'blog/img/blogdev.png' %}" alt="Blog Dev Icon" width="30" height="24">
                     <span class="navbar-brand mb-0 h1">Blog | Estuardo Ramírez</span>
                 </a>
@@ -87,6 +87,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Busqueda</th>
+                                    <th scope="col">Fecha</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -94,6 +95,7 @@
                                 <tr>
                                     <th scope="row">{{a.id}}</th>
                                     <td><a href="{{a.url}}/{{a.id}}">{{a.titulo}}</a></td>
+                                    <td>{{a.creado_el}}</td>
                                 </tr>
                                 {% endfor %}
                             </table>
