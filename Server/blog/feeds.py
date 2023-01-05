@@ -1,6 +1,7 @@
 from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from blog.models import Articulo
+import urllib.request
 
 class UltimasNoticias(Feed):
     title = "Ciencia y Tecnología"
@@ -9,7 +10,7 @@ class UltimasNoticias(Feed):
     language = "es-GT"
 
     def items(self):
-        return Articulo.objects.order_by('-id')[:6]
+        return Articulo.objects.order_by('-id')[:9]
 
     def item_title(self, item):
         return item.titulo
@@ -23,3 +24,15 @@ class UltimasNoticias(Feed):
     # item_link is only needed if NewsItem has no get_absolute_url method.
     def item_link(self, item):
         return f'{item.url}/{item.id}'
+
+    
+    # IMAGENES
+    def item_enclosure_mime_type(self, item):
+        return "image/webp"
+
+    def item_enclosure_url(self, item):
+        return item.imagen
+
+    def item_enclosure_length(self, item):
+        response = urllib.request.urlopen(item.imagen)
+        return int(response.info()["Content-Length"])
