@@ -68,10 +68,10 @@ def RssView(request):
     return render(request, template_name, {'data':data}, content_type="text/xml")
 
 # ERRORES
-def handler404(request, exception=None):
-    template_name: str = "error_blog/404/404.html"
+def Error404(request, exception=None):
+    template_name: str = "blog/error_blog/404/404.html"
     return render(request, template_name)
 
 def Error500(request):
-    template_name: str = "error_blog/500/500.html"
+    template_name: str = "blog/error_blog/500/500.html"
     return render(request, template_name, status=500)
