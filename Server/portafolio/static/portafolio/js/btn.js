@@ -1,5 +1,5 @@
 window.onscroll = function() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
       document.getElementById("btn-subir").style.display = "block";
     } else {
       document.getElementById("btn-subir").style.display = "none";
