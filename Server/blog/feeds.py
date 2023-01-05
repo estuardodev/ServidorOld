@@ -32,7 +32,3 @@ class UltimasNoticias(Feed):
 
     def item_enclosure_url(self, item):
         return item.imagen
-
-    def item_enclosure_length(self, item):
-        response = urllib.request.urlopen(item.imagen)
-        return int(response.info()["Content-Length"])
