@@ -36,11 +36,9 @@ class UltimasNoticias(Feed):
     def item_enclosure_url(self, item):
         return f'https://blog.estuardodev.com/media/{item.imagen}'
 
-    
-    
-def item_enclosure_length(self, item):
-    mi_modelo_instance = Articulo.objects.get(pk=item.id)
-    image_size = mi_modelo_instance.imagen.size
-    return image_size
+    def item_enclosure_length(self, item):
+        mi_modelo_instance = Articulo.objects.get(pk=item.id)
+        image_size = mi_modelo_instance.imagen.size
+        return image_size
             
             
