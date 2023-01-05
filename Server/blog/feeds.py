@@ -39,3 +39,4 @@ class UltimasNoticias(Feed):
         response = requests.head(f'https://blog.estuardodev.com/media/{item.imagen}')
         return int(response.headers.get("Content-Length", 0))
             
+            
