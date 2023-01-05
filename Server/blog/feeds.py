@@ -39,7 +39,8 @@ class UltimasNoticias(Feed):
     
     
 def item_enclosure_length(self, item):
-    image_size = Articulo.imagen.size
+    mi_modelo_instance = Articulo.objects.get(pk=item.id)
+    image_size = mi_modelo_instance.imagen.size
     return image_size
             
             
