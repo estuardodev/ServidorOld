@@ -6,6 +6,7 @@ class UltimasNoticias(Feed):
     title = "Ciencia y Tecnología"
     link = "/feed/"
     description = "Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente."
+    language = "es-GT"
 
     def items(self):
         return Articulo.objects.order_by('-id')[:6]
