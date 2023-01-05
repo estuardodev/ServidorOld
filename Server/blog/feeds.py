@@ -12,6 +12,9 @@ class UltimasNoticias(Feed):
     description = "Mantente actualizado con las últimas noticias y análisis de nuestro equipo técnico. Desde política hasta entretenimiento, cubrimos todo lo que necesitas saber en nuestro blog de noticias actualizado diariamente."
     language = "es-GT"
 
+    def get_feed_url(self, obj):
+        return '/feed/'
+
     def items(self):
         return Articulo.objects.order_by('-id')[:9]
 
@@ -27,7 +30,6 @@ class UltimasNoticias(Feed):
     # item_link is only needed if NewsItem has no get_absolute_url method.
     def item_link(self, item):
         return f'{item.url}/{item.id}'
-
     
     # IMAGENES
     def item_enclosure_mime_type(self, item):
