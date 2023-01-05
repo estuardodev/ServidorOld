@@ -30,6 +30,9 @@ class UltimasNoticias(Feed):
     def item_enclosure_mime_type(self, item):
         return "image/webp"
 
+    def item_enclosure_url(self, item):
+        return f'https://blog.estuardodev.com/media/{item.imagen}'
+
     def item_enclosure_length(self, item):
         try:
             response = urllib.request.urlopen(f'https://blog.estuardodev.com/media/{item.image_url}')
