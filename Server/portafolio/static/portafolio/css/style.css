@@ -3,6 +3,13 @@
     margin: 0px;
 }
 
+#btn-subir {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
 .imgabout{
     width: 350px;
     border-radius: 30px;
