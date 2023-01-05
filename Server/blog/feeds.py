@@ -39,3 +39,4 @@ class UltimasNoticias(Feed):
             return int(response.info()["Content-Length"])
         except urllib.error.HTTPError:
             return 0
+            
