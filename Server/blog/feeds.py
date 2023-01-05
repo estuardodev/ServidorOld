@@ -39,6 +39,7 @@ class UltimasNoticias(Feed):
     
     
 def item_enclosure_length(self, item):
-    return os.path.getsize(BASE_DIR + 'media/' + item.imagen)
+    image_size = Articulo.imagen.size
+    return image_size
             
             
