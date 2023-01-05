@@ -1,8 +1,10 @@
 from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from blog.models import Articulo
-import requests
+from pathlib import Path
+import os
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 class UltimasNoticias(Feed):
     title = "Ciencia y Tecnología"
@@ -35,8 +37,8 @@ class UltimasNoticias(Feed):
         return f'https://blog.estuardodev.com/media/{item.imagen}'
 
     
-    def item_enclosure_length(self, item):
-        response = requests.head(f'https://blog.estuardodev.com/media/{item.imagen}')
-        return int(response.headers.get("Content-Length", 0))
+    
+def item_enclosure_length(self, item):
+    return os.path.getsize(BASE_DIR + 'media/' + item.imagen)
             
             
