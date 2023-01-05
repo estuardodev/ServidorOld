@@ -35,7 +35,7 @@ class UltimasNoticias(Feed):
 
     def item_enclosure_length(self, item):
         try:
-            response = urllib.request.urlopen(f'https://blog.estuardodev.com/media/{item.image}')
+            response = urllib.request.urlopen(f'https://blog.estuardodev.com/media/{item.imagen}')
             return int(response.info()["Content-Length"])
         except urllib.error.HTTPError:
             return 0
