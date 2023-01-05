@@ -1,7 +1,8 @@
 from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from blog.models import Articulo
-import urllib.request
+import requests
+
 
 class UltimasNoticias(Feed):
     title = "Ciencia y Tecnología"
@@ -33,10 +34,8 @@ class UltimasNoticias(Feed):
     def item_enclosure_url(self, item):
         return f'https://blog.estuardodev.com/media/{item.imagen}'
 
+    
     def item_enclosure_length(self, item):
-        try:
-            response = urllib.request.urlopen(f'https://blog.estuardodev.com/media/{item.imagen}')
-            return int(response.info()["Content-Length"])
-        except urllib.error.HTTPError:
-            return 0
+        response = requests.head(f'https://blog.estuardodev.com/media/{item.imagen}')
+        return int(response.headers.get("Content-Length", 0))
             
