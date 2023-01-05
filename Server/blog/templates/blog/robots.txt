@@ -1,3 +1,4 @@
 User-Agent: *
+Disallow: /all/
 
 Sitemap: https://blog.estuardodev.com/sitemap.xml
