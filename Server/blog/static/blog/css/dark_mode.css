@@ -62,8 +62,11 @@ input[type="checkbox"] {
     color: var(--text-color);
   }
   
-  .dark-mode body, .dark {
+  .dark-mode body, .dark, .card {
     background-color: var(--bg-color);
     color: var(--text-color);
   }
   
+  .dark-mode th, tr, thead {
+    color: var(--text-color);
+  }
