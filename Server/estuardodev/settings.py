@@ -120,7 +120,7 @@ DATABASES = {
         'NAME': 'django_app',
         'USER': 'root',
         'PASSWORD': 'MDB_Root_1',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': 3306
     }
 }
