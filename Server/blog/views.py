@@ -3,10 +3,27 @@ from django.http import HttpResponse, Http404 # Respuesta HTTP
 from django.views import generic
 from django.db.models import Q
 
-from .models import Articulo
+from .models import Articulo, IPUsuarios
+from portafolio.views import get_user_public_ip
 
 # Create your views here.
 def indexView(request):
+    # Captura de IP y guardada en BD
+    ip = get_user_public_ip(request)
+    user_agent = request.headers['User-Agent']
+    try:
+        client = IPUsuarios.objects.get(ip=ip) 
+        client.navigator = user_agent
+        client.visits += 1
+        client.save()
+    except(IPUsuarios.DoesNotExist):
+        new_client = IPUsuarios.objects.create(
+            ip=ip,
+            navigator=user_agent,
+            visits=1
+        )
+        new_client.save()
+
     articulos = Articulo.objects.all().order_by('-id')
     articulos2 = Articulo.objects.all().count()
     img = Articulo.objects.filter(id=1)

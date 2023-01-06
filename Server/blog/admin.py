@@ -15,3 +15,10 @@ class ArticuloAdmin(admin.ModelAdmin):
     fields = ('titulo', 'description', 'tags', 'url', 'prioridad', 'contenido', 'imagen', 'alt_imagen')
 
 admin.site.register(models.Articulo, ArticuloAdmin)
+
+class IPUsuariosAdmin(admin.ModelAdmin):
+    list_display = ('ip', 'last_visit', 'visits')
+    search_fields = ('ip', 'one_visit', 'navigator', 'last_visit', 'visits')
+    readonly_fields = ('ip', 'visits', 'last_visit', 'one_visit', 'navigator')
+
+admin.site.register(models.IPUsuarios, IPUsuariosAdmin)

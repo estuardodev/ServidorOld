@@ -15,3 +15,18 @@ class Articulo(models.Model):
 
     def __str__(self) -> str:
         return self.titulo + " ID: " + str(self.id)
+
+class IPUsuarios(models.Model):
+    ip = models.CharField(max_length=200, verbose_name="IP del Usuario", null=True)
+    navigator = models.CharField(max_length=256, verbose_name="Navegador, OS y más", null=True)
+    one_visit = models.DateTimeField(auto_now_add=True, null=True, verbose_name="Primer Visita")
+    last_visit = models.DateTimeField(auto_now=True, null=True, verbose_name="Última Visita")
+    visits = models.IntegerField(default=0, verbose_name="Total de Visitas", null=True)
+    
+    def __str__(self) -> str:
+        return self.ip
+
+    class Meta:
+        verbose_name = "Usuarios IP"
+        verbose_name_plural = "Usuarios IP"
+        
