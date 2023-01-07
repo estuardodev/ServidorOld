@@ -40,7 +40,7 @@ for i in lista:
 if entorno == True:
     DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = False
 
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local

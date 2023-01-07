@@ -6,15 +6,19 @@ from django.db.models import Q
 from .models import Articulo, IPUsuarios
 from portafolio.views import get_user_public_ip
 
-# Create your views here.
-def indexView(request):
+
+# Capturar, Guardar Data
+def UsuariosCap(request):
     # Captura de IP y guardada en BD
     ip = get_user_public_ip(request)
     user_agent = request.headers['User-Agent']
+    response = HttpResponse()
+    status = response.status_code
     try:
         client = IPUsuarios.objects.get(ip=ip) 
         client.navigator = user_agent
         client.visits += 1
+        client.code_status = int(status)
         client.save()
     except(IPUsuarios.DoesNotExist):
         new_client = IPUsuarios.objects.create(
@@ -24,10 +28,18 @@ def indexView(request):
         )
         new_client.save()
 
-    articulos = Articulo.objects.all().order_by('-id')
-    articulos2 = Articulo.objects.all().count()
-    img = Articulo.objects.filter(id=1)
-    resta = articulos2 - 6
+# Create your views here.
+def indexView(request):
+    # Captura de datos
+    UsuariosCap(request)
+
+    # Optencion de Articulos
+    articulos = Articulo.objects.all().order_by('-id') # Se obtienen y se ordenan del ultimo al primero
+    articulos2 = Articulo.objects.all().count() # Se cuentan cuantos articulos hay
+    img = Articulo.objects.filter(id=1) # Imagen de la pestaña
+    resta = articulos2 - 6 # Resta para articulos a mostrar
+    
+    # Se obtiene el search del sitio
     search = request.GET.get('search')
     if search:
         articulo1 = Articulo.objects.filter(
@@ -38,13 +50,19 @@ def indexView(request):
         articulo = {'search': articulo1 }
         return render(request, 'blog/index.html', articulo)
     all = request.POST.get('all')
+    # Se obtiene el Mostrar todos
     if all:
         all = Articulo.objects.all().order_by('-id')
         articulo = {'search': articulo1 }
         return render(request, 'blog/index.html', articulo)
+    
+    # Se renderiza sin importar algo
     return render(request, 'blog/index.html', {'articulos': articulos, 'resta': resta, 'img':img,})
 
 def ArticuloView(request, url:str, id:int):
+    # Captura de datos
+    UsuariosCap(request)
+
     articule = get_object_or_404(Articulo, id=id)
     try: 
 
@@ -65,6 +83,9 @@ def ArticuloView(request, url:str, id:int):
         return render(request, 'blog/error_blog/404/404.html')
 
 def allView(request):
+    # Captura de datos
+    UsuariosCap(request)
+
     articulos = Articulo.objects.all().order_by('-id')
     no = 1
     return render(request, 'blog/all.html', {'all': articulos, 'no': no})
@@ -86,6 +107,9 @@ def RssView(request):
 
 # ERRORES
 def Error404(request, exception=None):
+    # Captura de datos
+    UsuariosCap(request)
+    
     template_name: str = "blog/error_blog/404/404.html"
     return render(request, template_name)
 

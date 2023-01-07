@@ -22,6 +22,7 @@ class IPUsuarios(models.Model):
     one_visit = models.DateTimeField(auto_now_add=True, null=True, verbose_name="Primer Visita")
     last_visit = models.DateTimeField(auto_now=True, null=True, verbose_name="Última Visita")
     visits = models.IntegerField(default=0, verbose_name="Total de Visitas", null=True)
+    code_status = models.IntegerField(default=0, verbose_name="Codigo de respuesta", null=True)
     
     def __str__(self) -> str:
         return self.ip
