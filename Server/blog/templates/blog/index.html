@@ -101,7 +101,7 @@
         
         <!--TEXTO-->
         <div class="container">
-            <h1>Bloque de artículos</h1><hr>
+            <h1>BlogDev</h1><hr>
             <p>¡Encuentra aquí los artículos más recientes!</p><hr>
         </div>
 
@@ -119,7 +119,6 @@
                                     <img src="media/{{a.imagen}}" class="card-img-top" alt="{{a.alt_imagen}}">
                                     <div class="card-body dark">
                                         <h5 class="card-title dark-mode">{{ a.titulo }}</h5>
-                                        <div class="card-text limitado dark-mode" >{{ a.contenido |safe}}</div>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted dark-mode">Creado: {{a.creado_el}}</small>
