@@ -11,8 +11,8 @@ admin.site.site_title = 'Administrador'
 class ArticuloAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'creado')
 
-    search_fields = ('titulo', 'creado')
-    fields = ('titulo', 'description', 'tags', 'url', 'prioridad', 'contenido', 'imagen', 'alt_imagen')
+    search_fields = ('titulo', 'creado', 'autor')
+    fields = ('titulo', 'description', 'tags', 'url', 'prioridad', 'contenido', 'imagen', 'alt_imagen', 'autor')
 
 admin.site.register(models.Articulo, ArticuloAdmin)
 
