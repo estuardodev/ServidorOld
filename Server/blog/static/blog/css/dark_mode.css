@@ -71,7 +71,7 @@ input[type="checkbox"] {
     color: var(--text-color);
   }
 
-  .dark-mode .scroll-down{
+  .dark-mode, .scroll-down{
     background-color: #fff;
     color: #000;
   }
