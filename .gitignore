@@ -7,3 +7,4 @@ converter.py
 images_converter/
 db.txt
 pass.txt
+migrations/
