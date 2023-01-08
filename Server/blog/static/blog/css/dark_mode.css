@@ -62,7 +62,7 @@ input[type="checkbox"] {
     color: var(--text-color);
   }
   
-  .dark-mode body, .dark, .card, .scroll-down{
+  .dark-mode body, .dark, .card{
     background-color: var(--bg-color);
     color: var(--text-color);
   }
@@ -71,7 +71,12 @@ input[type="checkbox"] {
     color: var(--text-color);
   }
 
-  .dark-mode, .scroll-down{
+ .scroll-down{
     background-color: #fff;
     color: #000;
   }
+
+.scrolldowndeac{
+  background-color: #000;
+  color: #fff;
+}
