@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Articulo(models.Model):
+    visits = models.IntegerField(default=0, verbose_name="Total Visitas", null=True)
     titulo = models.CharField(max_length=150)
     contenido = models.TextField(max_length=5000)
     tags = models.CharField(max_length=400, null=True)

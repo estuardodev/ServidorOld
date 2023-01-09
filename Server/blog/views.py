@@ -38,7 +38,7 @@ def indexView(request):
     articulos2 = Articulo.objects.all().count() # Se cuentan cuantos articulos hay
     img = Articulo.objects.filter(id=1) # Imagen de la pestaña
     resta = articulos2 - 6 # Resta para articulos a mostrar
-    
+
     # Se obtiene el search del sitio
     search = request.GET.get('search')
     if search:
@@ -62,6 +62,11 @@ def indexView(request):
 def ArticuloView(request, url:str, id:int):
     # Captura de datos
     UsuariosCap(request)
+
+    # Guarda Visita
+    visita = Articulo.objects.get(id=id)
+    visita.visits += 1
+    visita.save()
 
     articule = get_object_or_404(Articulo, id=id)
     try: 

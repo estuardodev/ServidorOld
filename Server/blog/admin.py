@@ -11,8 +11,10 @@ admin.site.site_title = 'Administrador'
 class ArticuloAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'creado')
 
-    search_fields = ('titulo', 'creado', 'autor')
-    fields = ('titulo', 'description', 'tags', 'url', 'prioridad', 'contenido', 'imagen', 'alt_imagen', 'autor')
+    search_fields = ('titulo', 'creado', 'autor') 
+    readonly_fields = ('visits',)
+    fields = ('titulo', 'visits', 'description', 'tags', 'url', 'prioridad', 'contenido', 'imagen', 'alt_imagen', 'autor')
+    
 
 admin.site.register(models.Articulo, ArticuloAdmin)
 
@@ -22,3 +24,4 @@ class IPUsuariosAdmin(admin.ModelAdmin):
     readonly_fields = ('ip', 'visits', 'last_visit', 'one_visit', 'navigator', 'code_status')
 
 admin.site.register(models.IPUsuarios, IPUsuariosAdmin)
+
