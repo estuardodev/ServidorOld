@@ -16,7 +16,7 @@ class UltimasNoticias(Feed):
         return '/feed/'
 
     def items(self):
-        return Articulo.objects.order_by('-id')[:9]
+        return Articulo.objects.order_by('-id')[:10]
 
     def item_title(self, item):
         return item.titulo
