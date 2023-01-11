@@ -14,6 +14,7 @@ class Articulo(models.Model):
     alt_imagen = models.CharField(max_length=150, null=True)
     prioridad = models.FloatField(default=0.5)
     autor = models.CharField(max_length=200, default='Estuardo Ramírez')
+    
 
     def __str__(self) -> str:
         return self.titulo + " ID: " + str(self.id)
