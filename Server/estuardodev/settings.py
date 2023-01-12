@@ -125,6 +125,7 @@ DATABASES = {
     }
 }
 
+
 SITE_ID = 1 
 
 # Password validation
