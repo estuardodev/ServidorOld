@@ -8,3 +8,4 @@ images_converter/
 db.txt
 pass.txt
 migrations/
+copy_db/
