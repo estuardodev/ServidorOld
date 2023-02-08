@@ -55,6 +55,24 @@ def DownloadView(request):
     # Return the response value
     return response
 
+def DownloadDBView(request):
+    # Define Django project base directory
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    # Define text file name
+    filename = '2023' + '-' + '02' + '-' + '07' + '.sql'
+    # Define the full file path
+    filepath = BASE_DIR + '/copy_db/' + filename
+    # Open the file for reading content
+    path = open(filepath, 'rb').read()
+    # Set the mime type
+    mime_type, _ = mimetypes.guess_type(filepath)
+    # Set the return value of the HttpResponse
+    response = HttpResponse(path, content_type=mime_type)
+    # Set the HTTP header for sending to browser
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    # Return the response value
+    return response
+
 
 class YouTubeView(generic.TemplateView):
     template_name: str = "portafolio/youtube/yt.html"    
