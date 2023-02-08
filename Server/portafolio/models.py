@@ -14,6 +14,7 @@ class IPClient(models.Model):
 class IPClientVisitas(models.Model):
     ip_key = models.ForeignKey(IPClient, on_delete=models.CASCADE, verbose_name="Direccion IP")
     visitas = models.IntegerField(default=0, verbose_name="Visitas del Usuario")
+    ultima_vez = models.DateTimeField(verbose_name="Última Vez", auto_now=True, null=True)
 
     class Meta:
         verbose_name = "Visitas de IP"

@@ -44,7 +44,7 @@ else:
 
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
-ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com'] # Production
+ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com',] # Production
 CSRF_TRUSTED_ORIGINS = ['https://estuardodev.com']
 
 # Application definition

@@ -11,8 +11,8 @@ class IPBlog(admin.ModelAdmin):
 admin.site.register(model_or_iterable=(IPClient), admin_class=IPBlog)
 
 class VisitasBLog(admin.ModelAdmin):
-    list_display = ('ip_key', 'visitas')
+    list_display = ('ip_key', 'visitas', 'ultima_vez')
     search_fields = ('id',)
-    readonly_fields = ('id', 'ip_key', 'visitas')
+    readonly_fields = ('id', 'ip_key', 'visitas', 'ultima_vez')
 
 admin.site.register(model_or_iterable=(IPClientVisitas), admin_class=VisitasBLog)
