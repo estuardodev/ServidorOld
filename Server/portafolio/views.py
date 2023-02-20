@@ -1,10 +1,17 @@
-import os, mimetypes
+# Imports the systen
+import os, mimetypes, time
 
+# Imports the Django
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.views import generic
+
+# Imports the third party
 from ipware import get_client_ip
+from psutil import cpu_percent, virtual_memory
+
+# Imports the my moduls
 from .models import IPClient, IPClientVisitas
 
 
@@ -17,13 +24,22 @@ def get_user_public_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+def monitor_the_cpu_and_memory():
+    cpu = cpu_percent()
+    memory = virtual_memory().percent
+    return cpu, memory
+ 
 
 # IndexView ("estuardodev.com" | "www.estuardodev.com")
 def IndexView(request):
     template_name: str = "portafolio/index.html"
+    template_name_stop: str = "portafolio/stop.html"
     
     ip_client = get_user_public_ip(request)
+    cpu, memory = monitor_the_cpu_and_memory()
+    cpu, memory = float(cpu), float(memory)
 
+    message_alert = True
     try:
         cliente = IPClient.objects.get(ip_add=ip_client)
         selected_client = cliente.ipclientvisitas_set.get(pk=cliente.id)
@@ -35,7 +51,12 @@ def IndexView(request):
         create.save()
         create.ipclientvisitas_set.create(visitas=1)
 
-    return render(request, template_name, {'ip_client' : ip_client})
+    if cpu > 90:
+        return render(request, template_name_stop)
+    elif cpu >= 80:
+        return render(request, template_name, {'ip_client' : ip_client, 'message_alert': message_alert})
+    else:
+        return render(request, template_name, {'ip_client' : ip_client})
 
 def DownloadView(request):
     # Define Django project base directory
