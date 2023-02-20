@@ -4,6 +4,7 @@ django-ipware==4.0.2
 mysqlclient==2.1.1
 Pillow==9.4.0
 feedgenerator==2.0.0
+psutil==5.9.4
 # PARA MYSQLCLIENT EN UBUNTU EJECUTAR 
 
 #sudo apt-get install python3-mysqldb libmysqlclient-dev python3-dev
