@@ -13,6 +13,7 @@ from psutil import cpu_percent, virtual_memory
 
 # Imports the my moduls
 from .models import IPClient, IPClientVisitas
+# Arreglado
 
 
 def get_user_public_ip(request):
