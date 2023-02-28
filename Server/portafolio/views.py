@@ -12,7 +12,7 @@ from ipware import get_client_ip
 from psutil import cpu_percent, virtual_memory
 
 # Imports the my moduls
-from .models import IPClient, IPClientVisitas
+from .models import IPUsers
 # Arreglado
 
 
@@ -39,18 +39,19 @@ def IndexView(request):
     ip_client = get_user_public_ip(request)
     cpu, memory = monitor_the_cpu_and_memory()
     cpu, memory = float(cpu), float(memory)
+    user_agent = request.headers['User-Agent']
 
     message_alert = True
     try:
-        cliente = IPClient.objects.get(ip_add=ip_client)
-        selected_client = cliente.ipclientvisitas_set.get(pk=cliente.id)
-        selected_client.visitas += 1
-        selected_client.save()
+        cliente = IPUsers.objects.get(ip=ip_client)
+        cliente.browser = user_agent
+        cliente.visits += 1
+        cliente.save()
         
-    except IPClient.DoesNotExist:
-        create = IPClient.objects.create(ip_add=ip_client)
+    except IPUsers.DoesNotExist:
+        create = IPUsers.objects.create(ip=ip_client, browser=user_agent, visits=1)
         create.save()
-        create.ipclientvisitas_set.create(visitas=1)
+        
 
     if cpu > 90:
         return render(request, template_name_stop)
