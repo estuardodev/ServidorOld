@@ -16,16 +16,23 @@ from .models import IPUsers
 # Arreglado
 
 
-def get_user_public_ip(request):
-    """  Getting client Ip  """
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[-1].strip() 
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
+def data_users(request):
+    '''With this function recolect and save the information of the users'''
+    ip, v_f = get_client_ip(request)
+    user_agent = request.headers['User-Agent']
+    try:
+        cliente = IPUsers.objects.get(ip=ip)
+        cliente.browser = user_agent
+        cliente.visits += 1
+        cliente.save()
+        
+    except IPUsers.DoesNotExist:
+        create = IPUsers.objects.create(ip=ip, browser=user_agent, visits=1)
+        create.save()
+    return ip, user_agent
 
 def monitor_the_cpu_and_memory():
+    '''With this function we monitor the data the system'''
     cpu = cpu_percent()
     memory = virtual_memory().percent
     return cpu, memory
@@ -36,27 +43,14 @@ def IndexView(request):
     template_name: str = "portafolio/index.html"
     template_name_stop: str = "portafolio/stop.html"
     
-    ip_client = get_user_public_ip(request)
+    ip_client, user_agent = data_users(request)
     cpu, memory = monitor_the_cpu_and_memory()
     cpu, memory = float(cpu), float(memory)
-    user_agent = request.headers['User-Agent']
-
-    message_alert = True
-    try:
-        cliente = IPUsers.objects.get(ip=ip_client)
-        cliente.browser = user_agent
-        cliente.visits += 1
-        cliente.save()
-        
-    except IPUsers.DoesNotExist:
-        create = IPUsers.objects.create(ip=ip_client, browser=user_agent, visits=1)
-        create.save()
-        
-
+    
     if cpu > 90:
         return render(request, template_name_stop)
     elif cpu >= 80:
-        return render(request, template_name, {'ip_client' : ip_client, 'message_alert': message_alert})
+        return render(request, template_name, {'ip_client' : ip_client, 'message_alert': True})
     else:
         return render(request, template_name, {'ip_client' : ip_client})
 
@@ -94,11 +88,7 @@ def DownloadDBView(request):
     # Set the HTTP header for sending to browser
     response['Content-Disposition'] = "attachment; filename=%s" % filename
     # Return the response value
-    return response
-
-
-class YouTubeView(generic.TemplateView):
-    template_name: str = "portafolio/youtube/yt.html"    
+    return response  
     
 class AtributionView(generic.TemplateView):
     template_name: str = "terceros/atribucion.html"
@@ -108,3 +98,8 @@ class Error404View(generic.TemplateView):
 
 class Error500View(generic.TemplateView):
     template_name: str = "error/500/500.html"
+
+''' SUSPENDED
+class YouTubeView(generic.TemplateView):
+    template_name: str = "portafolio/youtube/yt.html"  
+'''

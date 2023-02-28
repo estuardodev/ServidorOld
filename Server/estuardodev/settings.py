@@ -40,7 +40,7 @@ for i in lista:
 if entorno == True:
     DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = True # Necesitas tener '11' en el archivo debug
 
 
 # ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
@@ -119,7 +119,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_app',
         'USER': 'root',
-        'PASSWORD': 'MDB_Root_1',
         'HOST': '127.0.0.1',
         'PORT': 3306
     }
