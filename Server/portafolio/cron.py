@@ -8,6 +8,6 @@ def delete_old_records():
     inactive_users.delete()
 
 def delete_old_records_blog():
-    one_month_ago = datetime.now() - timedelta(days=30)
+    one_month_ago = datetime.now() - timedelta(days=0, seconds=1)
     inactive_users = IPUsuarios.objects.filter(last_time__lt=one_month_ago)
     inactive_users.delete()
