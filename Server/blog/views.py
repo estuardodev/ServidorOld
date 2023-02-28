@@ -4,13 +4,13 @@ from django.views import generic
 from django.db.models import Q
 
 from .models import Articulo, IPUsuarios
-from portafolio.views import get_user_public_ip, monitor_the_cpu_and_memory
+from portafolio.views import data_users, monitor_the_cpu_and_memory
 
 
 # Capturar, Guardar Data
 def UsuariosCap(request):
     # Captura de IP y guardada en BD
-    ip = get_user_public_ip(request)
+    ip, user_agent = data_users(request)
     user_agent = request.headers['User-Agent']
     response = HttpResponse()
     status = response.status_code
