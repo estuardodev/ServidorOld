@@ -15,7 +15,6 @@ from psutil import cpu_percent, virtual_memory
 
 # Imports the my moduls
 from .models import IPUsers
-from .cron import delete_old_records
 # Arreglado
 
 

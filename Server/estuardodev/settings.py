@@ -71,6 +71,7 @@ INSTALLED_APPS = [
 
 CRONJOBS = [    
     ('0 2 1 * *', 'portafolio.cron.delete_old_records'),
+    ('0 2 1 * *', 'portafolio.cron.delete_old_records_blog'),
     ]
 
 MIDDLEWARE = [

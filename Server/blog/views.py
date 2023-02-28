@@ -1,32 +1,79 @@
+# Imports the systen
+import os, mimetypes, requests
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404 # Respuesta HTTP
 from django.views import generic
 from django.db.models import Q
 
 from .models import Articulo, IPUsuarios
-from portafolio.views import data_users, monitor_the_cpu_and_memory
+from ipware import get_client_ip
+from portafolio.views import monitor_the_cpu_and_memory
 
 
 # Capturar, Guardar Data
 def UsuariosCap(request):
-    # Captura de IP y guardada en BD
-    ip, user_agent = data_users(request)
+    '''With this function recolect and save the information of the users'''
+    ip, v_f = get_client_ip(request)
     user_agent = request.headers['User-Agent']
-    response = HttpResponse()
-    status = response.status_code
-    try:
-        client = IPUsuarios.objects.get(ip=ip) 
-        client.navigator = user_agent
-        client.visits += 1
-        client.code_status = int(status)
-        client.save()
-    except(IPUsuarios.DoesNotExist):
-        new_client = IPUsuarios.objects.create(
-            ip=ip,
-            navigator=user_agent,
-            visits=1
-        )
-        new_client.save()
+    petition = requests.get(f"http://ip-api.com/json/{ip}")
+    petition = petition.json()
+    if petition['status'] == "success":
+    
+        try:
+            # Save IPUsers
+            cliente = IPUsuarios.objects.get(ip=ip)
+            cliente.browser = user_agent
+            cliente.country = petition['country']
+            cliente.city = petition['city']
+            cliente.lat = petition['lat']
+            cliente.lon = petition['lon']
+            cliente.code_zip = petition['zip']
+            cliente.isp = petition['isp']
+            cliente.visits += 1
+            cliente.save()
+            
+        except (IPUsuarios.DoesNotExist):
+            create = IPUsuarios.objects.create(
+                ip=ip, 
+                browser=user_agent, 
+                country=petition['country'], 
+                city = petition['city'],
+                lat = petition['lat'],
+                lon = petition['lon'],
+                code_zip = petition['zip'],
+                isp = petition['isp'],
+                visits=1)            
+            create.save()
+        return ip, user_agent
+    else:
+        try:
+            # Save IPUsers
+            cliente = IPUsuarios.objects.get(ip=ip)
+            cliente.browser = user_agent
+            cliente.country = "LocalHost",
+            cliente.city = "LocalHost",
+            cliente.lat = "LocalHost",
+            cliente.lon = "LocalHost",
+            cliente.code_zip = "LocalHost",
+            cliente.isp = "LocalHost",
+            cliente.visits += 1
+            cliente.save()
+            
+        except IPUsuarios.DoesNotExist:
+            create = IPUsuarios.objects.create(
+                ip=ip, 
+                browser=user_agent, 
+                country="LocalHost", 
+                city = "LocalHost",
+                lat = "LocalHost",
+                lon = "LocalHost",
+                code_zip = "LocalHost",
+                isp = "LocalHost",
+                visits=1)            
+            create.save()
+        return ip, user_agent
+
 
 # Create your views here.
 def indexView(request):

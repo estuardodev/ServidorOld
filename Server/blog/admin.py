@@ -19,9 +19,9 @@ class ArticuloAdmin(admin.ModelAdmin):
 admin.site.register(models.Articulo, ArticuloAdmin)
 
 class IPUsuariosAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'last_visit', 'visits')
-    search_fields = ('ip', 'one_visit', 'navigator', 'last_visit', 'visits', 'code_status')
-    readonly_fields = ('ip', 'visits', 'last_visit', 'one_visit', 'navigator', 'code_status')
+    list_display = ('ip', 'last_time', 'country', 'visits')
+    search_fields = ('ip', 'browser','first_time', 'country', 'last_time')
+    readonly_fields = ('ip', 'country', 'first_time', 'last_time', 'browser', 'visits', 'city', 'code_zip', 'lat', 'lon', 'isp')
 
 admin.site.register(models.IPUsuarios, IPUsuariosAdmin)
 
