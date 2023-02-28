@@ -1,5 +1,5 @@
 # Imports the systen
-import os, mimetypes, time
+import os, mimetypes, time, requests
 
 # Imports the Django
 from django.shortcuts import render
@@ -20,16 +20,64 @@ def data_users(request):
     '''With this function recolect and save the information of the users'''
     ip, v_f = get_client_ip(request)
     user_agent = request.headers['User-Agent']
-    try:
-        cliente = IPUsers.objects.get(ip=ip)
-        cliente.browser = user_agent
-        cliente.visits += 1
-        cliente.save()
-        
-    except IPUsers.DoesNotExist:
-        create = IPUsers.objects.create(ip=ip, browser=user_agent, visits=1)
-        create.save()
-    return ip, user_agent
+    petition = requests.get(f"http://ip-api.com/json/{ip}")
+    petition = petition.json()
+    print(petition)
+    if petition['status'] == "success":
+    
+        try:
+            # Save IPUsers
+            cliente = IPUsers.objects.get(ip=ip)
+            cliente.browser = user_agent
+            cliente.country = petition['country']
+            cliente.city = petition['city']
+            cliente.lat = petition['lat']
+            cliente.lon = petition['lon']
+            cliente.code_zip = petition['zip']
+            cliente.isp = petition['isp']
+            cliente.visits += 1
+            cliente.save()
+            
+        except (IPUsers.DoesNotExist):
+            create = IPUsers.objects.create(
+                ip=ip, 
+                browser=user_agent, 
+                country=petition['country'], 
+                city = petition['city'],
+                lat = petition['lat'],
+                lon = petition['lon'],
+                code_zip = petition['zip'],
+                isp = petition['isp'],
+                visits=1)            
+            create.save()
+        return ip, user_agent
+    else:
+        try:
+            # Save IPUsers
+            cliente = IPUsers.objects.get(ip=ip)
+            cliente.browser = user_agent
+            cliente.country = "LocalHost",
+            cliente.city = "LocalHost",
+            cliente.lat = "LocalHost",
+            cliente.lon = "LocalHost",
+            cliente.code_zip = "LocalHost",
+            cliente.isp = "LocalHost",
+            cliente.visits += 1
+            cliente.save()
+            
+        except IPUsers.DoesNotExist:
+            create = IPUsers.objects.create(
+                ip=ip, 
+                browser=user_agent, 
+                country="LocalHost", 
+                city = "LocalHost",
+                lat = "LocalHost",
+                lon = "LocalHost",
+                code_zip = "LocalHost",
+                isp = "LocalHost",
+                visits=1)            
+            create.save()
+        return ip, user_agent
 
 def monitor_the_cpu_and_memory():
     '''With this function we monitor the data the system'''
