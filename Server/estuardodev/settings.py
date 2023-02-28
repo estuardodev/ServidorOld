@@ -52,7 +52,7 @@ CSRF_TRUSTED_ORIGINS = ['https://estuardodev.com']
 INSTALLED_APPS = [
     # TERCEROS
     'django_hosts',
-
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -69,6 +69,9 @@ INSTALLED_APPS = [
     
 ]
 
+CRONJOBS = [    
+    ('5 14 28 * *', 'portafolio.cron.delete_old_records'),
+    ]
 
 MIDDLEWARE = [
     # Django hosts
