@@ -9,7 +9,6 @@ from django.db.models import Q
 from .models import Articulo, IPUsuarios
 from ipware import get_client_ip
 from portafolio.views import monitor_the_cpu_and_memory
-from portafolio.cron import delete_old_records_blog
 
 
 # Capturar, Guardar Data
@@ -96,7 +95,6 @@ def indexView(request):
 
     # Variables
     message_alert = True
-    delete_old_records_blog()
     # Verificación de si el CPU esta a mas de 90%, de ser así se renderizara el template_name_stop
     if cpu > 90:
         return render(request, template_name_stop)
