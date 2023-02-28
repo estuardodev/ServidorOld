@@ -70,7 +70,7 @@ INSTALLED_APPS = [
 ]
 
 CRONJOBS = [    
-    ('7 14 28 * *', 'portafolio.cron.delete_old_records'),
+    ('9 14 28 * *', 'portafolio.cron.delete_old_records'),
     ]
 
 MIDDLEWARE = [
