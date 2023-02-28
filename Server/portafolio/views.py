@@ -1,11 +1,14 @@
 # Imports the systen
-import os, mimetypes, time, requests
+import os, mimetypes, requests
+from datetime import datetime
 
 # Imports the Django
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.views import generic
+from django.utils import timezone
+
 
 # Imports the third party
 from ipware import get_client_ip
@@ -13,8 +16,11 @@ from psutil import cpu_percent, virtual_memory
 
 # Imports the my moduls
 from .models import IPUsers
+from .task import delete_old_records
 # Arreglado
 
+
+    
 
 def data_users(request):
     '''With this function recolect and save the information of the users'''
@@ -82,6 +88,8 @@ def monitor_the_cpu_and_memory():
     '''With this function we monitor the data the system'''
     cpu = cpu_percent()
     memory = virtual_memory().percent
+    delete_old_records()
+
     return cpu, memory
  
 

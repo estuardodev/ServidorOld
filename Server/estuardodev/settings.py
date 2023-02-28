@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     
 ]
 
+
 MIDDLEWARE = [
     # Django hosts
     'django_hosts.middleware.HostsRequestMiddleware',
