@@ -133,7 +133,7 @@
                             <div class="row">
                             <div class="col-sm-5 col-md-6"><p class="text-muted"><i class="fas fa-user"></i> Autor: {{articulo.autor}}</p></div>
                             <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-                                <a href="https://twitter.com/intent/tweet?url={{request.build_absolute_uri}}&text={{articulo.titulo}}&via=tu_usuario_de_twitter" target="_blank" rel="noopener"><i class="fab fa-twitter" style="color: #1DA1F2; font-size: 30px;"></i></a>
+                                <a href="https://twitter.com/intent/tweet?url={{request.build_absolute_uri}}&text={{articulo.titulo}}&via=estuardodev" target="_blank" rel="noopener"><i class="fab fa-twitter" style="color: #1DA1F2; font-size: 30px;"></i></a>
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-facebook" style="color: #1877f2; font-size: 30px;"></i></a>
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{request.build_absolute_uri}}&title={{articulo.titulo}}&summary={{articulo.descripcion}}&source={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-linkedin" style="color: #0e76a8; font-size: 30px;"></i></a>
                                 <a href="https://www.reddit.com/submit?url={{request.build_absolute_uri}}&title={{articulo.titulo}}" target="_blank" rel="noopener"><i class="fab fa-reddit" style="color: #FF4500; font-size: 30px;"></i></a>
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
                 
                 {% endfor %}
             {% endblock  %}
