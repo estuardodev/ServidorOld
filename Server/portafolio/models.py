@@ -20,7 +20,6 @@ class IPUsers(models.Model):
         return self.ip
     
     class Meta:
-        db_table = "IPUsers"
         verbose_name = "IP Users"
         verbose_name_plural = "IP Users"
     

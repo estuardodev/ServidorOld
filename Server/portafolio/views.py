@@ -22,7 +22,6 @@ def data_users(request):
     user_agent = request.headers['User-Agent']
     petition = requests.get(f"http://ip-api.com/json/{ip}")
     petition = petition.json()
-    print(petition)
     if petition['status'] == "success":
     
         try:
