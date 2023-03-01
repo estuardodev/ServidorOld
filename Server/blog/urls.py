@@ -19,7 +19,11 @@ urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     # SITIO
     path('', views.indexView, name='IndexView'),
     path('articulo/<str:url>/<int:id>', views.ArticuloView, name="ArticuloView"),
-    path("all/", views.allView, name="all"),    
+    path("all/", views.allView, name="all"),  
+
+    # API
+    path("api/articulo/<int:pk>", views.getArticulo, name="apiArt"),  
+    path("api/ip-users/<str:ip>", views.getIPUsers, name="apiIP"),  
 
     # SEO
     path('robots.txt', views.RobotsView.as_view()),
