@@ -123,6 +123,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Busqueda</th>
                                     <th scope="col">Fecha</th>
+                                    <th scope="col">Vistas</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -132,6 +133,7 @@
                                         <th scope="row">{{a.id}}</th>
                                         <td><a href="{{a.url}}/{{a.id}}">{{a.titulo}}</a></td>
                                         <td>{{a.creado_el}}</td>
+                                        <td>{{a.visits}}</td>
                                     </tr>
                                     {% endif %}
                                 {% endfor %}
