@@ -142,6 +142,9 @@ def getIPUsers(request, ip:str):
 
 
 def ArticuloView(request, url:str, id:int):
+    # Verificamos que el id solicitado sea correcto
+    articule = get_object_or_404(Articulo, pk=id)
+    
     # Templates
     template_name: str = "blog/articulo/articulo.html"
     template_name_stop: str = "portafolio/stop.html"
@@ -155,18 +158,15 @@ def ArticuloView(request, url:str, id:int):
     message_alert = True
 
     # Guarda Visita
-    visita = Articulo.objects.get(id=id)
+    visita = Articulo.objects.get(pk=id)
     visita.visits += 1
     visita.save()
 
     # Verificación de si el CPU esta a mas de 90%, de ser así se renderizara el template_name_stop
     if cpu > 90:
         return render(request, template_name_stop)
-
-    # Verificación de si existe el articulo
-    articule = get_object_or_404(Articulo, id=id)
+    
     try: 
-
         search = request.GET.get('search')
         if search:
             articulo1 = Articulo.objects.filter(
@@ -184,10 +184,10 @@ def ArticuloView(request, url:str, id:int):
             if cpu >= 80:
                 articulos = Articulo.objects.filter(id=id)
                 articulo = {'articulo': articulos, 'message_alert': message_alert }
-
+        
         return render(request, 'blog/articulo/articulo.html', articulo)
-    except (KeyError, Articulo.DoesNotExist):
-        return render(request, 'blog/error_blog/404/404.html')
+    except (Articulo.DoesNotExist):
+        return render(request, 'blog/error_blog/404/404.html') # Server\blog\templates\blog\error_blog\404\404.html
 
 def allView(request):
     # Templates
