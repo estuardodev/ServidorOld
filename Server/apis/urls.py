@@ -16,7 +16,7 @@ urlpatterns = [
     # Url para la api que obtiene un articulo mediante su pk
     path("articulo/<int:pk>", getArticulo, name="apiArticulo"),
     # Url para la api que obtiene la informacion de usuarios mediante su IP
-    path("api/ip-users/<str:ip>", getIPUsers, name="apiIPUsers"),
+    path("ip-users/<str:ip>", getIPUsers, name="apiIPUsers"),
 ]
 
 
