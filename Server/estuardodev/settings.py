@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'portafolio.apps.PortafolioConfig',
     'legal.apps_legal.LegalConfig',
     'blog.apps_blog.BlogConfig',
+    'apis.apps_api.ApisConfig',
     
 ]
 
@@ -124,7 +125,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_app',
         'USER': 'root',
-        'PASSWORD': 'MDB_Root_1',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': 3306
     }
