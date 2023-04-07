@@ -29,6 +29,7 @@ urlpatterns = [
     path('', include('portafolio.urls')),
     path('legal/', include('legal.urls')),
     path('terceros/', AtributionView.as_view()),
+    path('api/', include('apis.urls')),
 
     #Path de archivos
     path('robots.txt', TemplateView.as_view(template_name="portafolio/robots.txt", content_type="text/plain")),
