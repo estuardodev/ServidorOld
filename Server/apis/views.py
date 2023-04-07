@@ -14,3 +14,7 @@ def indexView(request):
 def Error404(request):
     response = {"message":"Error 404"}
     return JsonResponse(response)
+
+def Error500(request):
+    response = {"message":"Error 500"}
+    return JsonResponse(response)
