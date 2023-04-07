@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, JsonResponse # Respuesta HTTP
 from django.views import generic
 from django.db.models import Q
-from django.forms.models import model_to_dict
+
 
 from .models import Articulo, IPUsuarios
 from ipware import get_client_ip
@@ -121,14 +121,7 @@ def indexView(request):
         # Se renderiza sin importar algo
         return render(request, template_name, {'articulos': articulos, 'resta': resta, 'img':img,})
 
-def getArticulo(request, pk:int):
-    try:
-        visitas = Articulo.objects.get(id=pk)
-        js = {'message': 'success', 'article': model_to_dict(visitas, exclude=['imagen', 'alt_imagen'])}
-    except Articulo.DoesNotExist:
-        js = {'message': 'Not Found'}
 
-    return JsonResponse(js)
 
 def getIPUsers(request, ip:str):
     try:

@@ -21,8 +21,7 @@ urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     path('articulo/<str:url>/<int:id>', views.ArticuloView, name="ArticuloView"),
     path("all/", views.allView, name="all"),  
 
-    # API
-    path("api/articulo/<int:pk>", views.getArticulo, name="apiArt"),  
+    # API 
     path("api/ip-users/<str:ip>", views.getIPUsers, name="apiIP"),  
 
     # SEO
