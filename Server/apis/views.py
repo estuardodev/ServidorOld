@@ -11,7 +11,7 @@ def indexView(request):
     return JsonResponse(response)
 
 # ERRORES
-def Error404(request):
+def Error404(request, exception=None):
     response = {"message":"Error 404"}
     return JsonResponse(response)
 
