@@ -1,3 +1,6 @@
+# Importaciones de Python
+import requests
+
 # Importaciones de Django
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
@@ -15,11 +18,22 @@ def indexView(request):
 def getArticulo(request, pk:int):
     try:
         visitas = Articulo.objects.get(id=pk)
-        articulo = {'message': 'success', 'article': model_to_dict(visitas, exclude=['imagen', 'alt_imagen'])}
+        articulo = {'message': 'Success', 'article': model_to_dict(visitas, exclude=['imagen', 'alt_imagen'])}
     except Articulo.DoesNotExist:
         articulo = {'message': 'Not Found'}
 
     return JsonResponse(articulo)
+
+# API que permite obtener informacion de los usuarios acerca de su IP
+def getIPUsers(request, ip:str):
+    try:
+        petition = requests.get(f"http://ip-api.com/json/{ip}")
+        petition = petition.json()
+        information = {'message': 'Success', 'information': petition}
+    except Articulo.DoesNotExist:
+        information = {'message': 'Not Found'}
+
+    return JsonResponse(information)
 
 # ERRORES
 def Error404(request, exception=None):

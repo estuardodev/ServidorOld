@@ -121,19 +121,6 @@ def indexView(request):
         # Se renderiza sin importar algo
         return render(request, template_name, {'articulos': articulos, 'resta': resta, 'img':img,})
 
-
-
-def getIPUsers(request, ip:str):
-    try:
-        petition = requests.get(f"http://ip-api.com/json/{ip}")
-        petition = petition.json()
-        js = {'message': 'success', 'information': petition}
-    except Articulo.DoesNotExist:
-        js = {'message': 'Not Found'}
-
-    return JsonResponse(js)
-
-
 def ArticuloView(request, url:str, id:int):
     # Verificamos que el id solicitado sea correcto
     articule = get_object_or_404(Articulo, pk=id)
