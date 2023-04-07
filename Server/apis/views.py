@@ -25,6 +25,7 @@ def getArticulo(request, pk:int):
         articulo = {'message': 'Success', 'article': model_to_dict(visitas, exclude=['imagen', 'alt_imagen'])}
     except Articulo.DoesNotExist:
         articulo = {'message': 'Not Found'}
+        return JsonResponse(articulo, status=404)
 
     return JsonResponse(articulo)
 
