@@ -9,3 +9,8 @@ from django.http import HttpResponse, JsonResponse
 def indexView(request):
     response = {"message":"Success"}
     return JsonResponse(response)
+
+# ERRORES
+def Error404(request):
+    response = {"message":"Error 404"}
+    return JsonResponse(response)
