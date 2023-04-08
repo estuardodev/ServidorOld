@@ -103,7 +103,7 @@ def indexView(request):
     # Verificación de si el usuario realiza una busqueda
     search = request.GET.get('search')
     if search:
-        articulo1 = Articulo.objects.filter(Q(titulo__icontains=search) | Q(tags__icontains=search) | Q(creado__icontains=search)).distinct()
+        articulo1 = Articulo.objects.filter(Q(tittle__icontains=search) | Q(tags__icontains=search) | Q(create__icontains=search)).distinct()
         # Renderización si el usuario realizó una busqueda
         if cpu >= 80:
             articulo = {'search': articulo1, 'message_alert': message_alert, 'articulos': articulos}
@@ -150,9 +150,9 @@ def ArticuloView(request, url:str, id:int):
         search = request.GET.get('search')
         if search:
             articulo1 = Articulo.objects.filter(
-            Q(titulo__icontains=search) |
+            Q(tittle__icontains=search) |
             Q(tags__icontains=search) |
-            Q(creado__icontains=search) 
+            Q(create__icontains=search) 
             ).distinct()
             articulo = {'search': articulo1 }
             # Renderización si el usuario realizó una busqueda

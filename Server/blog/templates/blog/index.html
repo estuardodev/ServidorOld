@@ -129,12 +129,12 @@
                 <p class="text-muted">¡Encuentra aquí los artículos más recientes!</p>
                 <div class="row text-center">
                     <div class="">
-                        <a href="https://twitter.com/intent/tweet?url={{request.build_absolute_uri}}&text={{articulo.titulo}}&via=estuardodev" target="_blank" rel="noopener"><i class="fab fa-twitter" style="color: #1DA1F2; font-size: 30px;"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url={{request.build_absolute_uri}}&text={{articulo.tittle}}&via=estuardodev" target="_blank" rel="noopener"><i class="fab fa-twitter" style="color: #1DA1F2; font-size: 30px;"></i></a>
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-facebook" style="color: #1877f2; font-size: 30px;"></i></a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{request.build_absolute_uri}}&title={{articulo.titulo}}&summary={{articulo.descripcion}}&source={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-linkedin" style="color: #0e76a8; font-size: 30px;"></i></a>
-                        <a href="https://www.reddit.com/submit?url={{request.build_absolute_uri}}&title={{articulo.titulo}}" target="_blank" rel="noopener"><i class="fab fa-reddit" style="color: #FF4500; font-size: 30px;"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{request.build_absolute_uri}}&title={{articulo.tittle}}&summary={{articulo.descripcion}}&source={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-linkedin" style="color: #0e76a8; font-size: 30px;"></i></a>
+                        <a href="https://www.reddit.com/submit?url={{request.build_absolute_uri}}&title={{articulo.tittle}}" target="_blank" rel="noopener"><i class="fab fa-reddit" style="color: #FF4500; font-size: 30px;"></i></a>
                         <a href="https://wa.me/?text={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 30px;"></i></a>
-                        <a href="https://telegram.me/share/url?url={{request.build_absolute_uri}}&text={{articulo.titulo}}" target="_blank" rel="noopener"><i class="fab fa-telegram" style="color: #0088cc; font-size: 30px;"></i></a>
+                        <a href="https://telegram.me/share/url?url={{request.build_absolute_uri}}&text={{articulo.tittle}}" target="_blank" rel="noopener"><i class="fab fa-telegram" style="color: #0088cc; font-size: 30px;"></i></a>
                         <a href="https://blog.estuardodev.com/feed" target="_blank" rel="noopener"><i class="fas fa-rss" style="color: #fcb941; font-size: 30px;"></i></a>
                     </div>
                 </div>
@@ -153,12 +153,12 @@
                             {% if a.id > resta %}
                             <div class="col dark">
                                 <div class="card h-100">
-                                    <img src="media/{{a.imagen}}" class="card-img-top" alt="{{a.alt_imagen}}">
+                                    <img src="media/{{a.image}}" class="card-img-top" alt="{{a.alt_image}}">
                                     <div class="card-body dark">
-                                        <h5 class="card-title dark-mode">{{ a.titulo }}</h5>
+                                        <h5 class="card-title dark-mode">{{ a.tittle }}</h5>
                                     </div>
                                     <div class="card-footer">
-                                        <small class="text-muted dark-mode">Creado: {{a.creado_el}}</small>
+                                        <small class="text-muted dark-mode">Creado: {{a.date_create}}</small>
                                     </div>
                                     <a href="{{a.url}}/{{a.id}}" class="btn btn-primary">Leer más</a>
                                 </div>
@@ -186,8 +186,8 @@
                                 {% for a in search %}
                                 <tr>
                                     <th scope="row">{{a.id}}</th>
-                                    <td><a href="{{a.url}}/{{a.id}}">{{a.titulo}}</a></td>
-                                    <td>{{a.creado_el}}</td>
+                                    <td><a href="{{a.url}}/{{a.id}}">{{a.tittle}}</a></td>
+                                    <td>{{a.date_create}}</td>
                                 </tr>
                                 {% endfor %}
                             </table>

@@ -8,18 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% for articulo in articulo %}
-    <title>{{articulo.titulo}}</title>
+    <title>{{articulo.tittle}}</title>
     <meta name="description" content="{{articulo.description}}">
     <meta name="keywords" content="{{articulo.tags}}">
-    <link rel="icon" href="../../media/{{articulo.imagen}}">
-    <link rel="apple-touch-icon" href="../../media/{{articulo.imagen}}">
+    <link rel="icon" href="../../media/{{articulo.image}}">
+    <link rel="apple-touch-icon" href="../../media/{{articulo.image}}">
     {% endfor %}
     
     {% for articulo in articulo %} <!--Formato para articulo en redes sociales-->
-    <meta property="og:title" content="{{articulo.titulo}}" />
+    <meta property="og:title" content="{{articulo.tittle}}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{request.build_absolute_uri}}" />
-    <meta property="og:image" content="https://{{ request.get_host }}/media/{{articulo.imagen}}" />
+    <meta property="og:image" content="https://{{ request.get_host }}/media/{{articulo.image}}" />
     <meta property="og:description" content="{{articulo.description}}" />
     {% endfor %}
 
@@ -90,12 +90,12 @@
             {% block content %}
                 {% for articulo in articulo %}
                 <div class="container">
-                    <h1>{{articulo.titulo}}</h1>
+                    <h1>{{articulo.tittle}}</h1>
                     
                     <div class="container text-center">
                         <div class="row align-items-start">
                           <div class="col">
-                            <p class="text-muted"><b>{{articulo.creado_el}}</b></p>
+                            <p class="text-muted"><b>{{articulo.date_create}}</b></p>
                           </div>
                           <div class="col">
                             
@@ -110,7 +110,7 @@
                     <div class="container">
                         <div class="container">
                             <div class="container-fluid">
-                                <img src="../../media/{{articulo.imagen}}" class="mx-auto d-block fluid w-75 w-50-sm w-70-md w-100-lg" style="width: 500px" alt="{{articulo.alt_imagen}}">
+                                <img src="../../media/{{articulo.image}}" class="mx-auto d-block fluid w-75 w-50-sm w-70-md w-100-lg" style="width: 500px" alt="{{articulo.alt_image}}">
                                 
                             </div>
                         </div>
@@ -119,9 +119,9 @@
                 
                 <div class="container">
                     <hr>
-                    <h2>{{articulo.titulo}}</h2>
+                    <h2>{{articulo.tittle}}</h2>
                         <div class="justy">
-                            {{articulo.contenido |safe }}
+                            {{articulo.content |safe }}
                         </div>
                     </div>
                 </div>
@@ -133,12 +133,12 @@
                             <div class="row">
                                 <div class="col-sm-5 col-md-6"><p class="text-muted"><i class="fas fa-user"></i> Autor: {{articulo.autor}}</p></div>
                                 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-                                    <a href="https://twitter.com/intent/tweet?url={{request.build_absolute_uri}}&text={{articulo.titulo}}&via=estuardodev" target="_blank" rel="noopener"><i class="fab fa-twitter" style="color: #1DA1F2; font-size: 30px;"></i></a>
+                                    <a href="https://twitter.com/intent/tweet?url={{request.build_absolute_uri}}&text={{articulo.tittle}}&via=estuardodev" target="_blank" rel="noopener"><i class="fab fa-twitter" style="color: #1DA1F2; font-size: 30px;"></i></a>
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-facebook" style="color: #1877f2; font-size: 30px;"></i></a>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{request.build_absolute_uri}}&title={{articulo.titulo}}&summary={{articulo.descripcion}}&source={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-linkedin" style="color: #0e76a8; font-size: 30px;"></i></a>
-                                    <a href="https://www.reddit.com/submit?url={{request.build_absolute_uri}}&title={{articulo.titulo}}" target="_blank" rel="noopener"><i class="fab fa-reddit" style="color: #FF4500; font-size: 30px;"></i></a>
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{request.build_absolute_uri}}&title={{articulo.tittle}}&summary={{articulo.descripcion}}&source={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-linkedin" style="color: #0e76a8; font-size: 30px;"></i></a>
+                                    <a href="https://www.reddit.com/submit?url={{request.build_absolute_uri}}&title={{articulo.tittle}}" target="_blank" rel="noopener"><i class="fab fa-reddit" style="color: #FF4500; font-size: 30px;"></i></a>
                                     <a href="https://wa.me/?text={{request.build_absolute_uri}}" target="_blank" rel="noopener"><i class="fab fa-whatsapp" style="color: #25D366; font-size: 30px;"></i></a>
-                                    <a href="https://telegram.me/share/url?url={{request.build_absolute_uri}}&text={{articulo.titulo}}" target="_blank" rel="noopener"><i class="fab fa-telegram" style="color: #0088cc; font-size: 30px;"></i></a>
+                                    <a href="https://telegram.me/share/url?url={{request.build_absolute_uri}}&text={{articulo.tittle}}" target="_blank" rel="noopener"><i class="fab fa-telegram" style="color: #0088cc; font-size: 30px;"></i></a>
                                     <a href="https://blog.estuardodev.com/feed" target="_blank" rel="noopener"><i class="fas fa-rss" style="color: #fcb941; font-size: 30px;"></i></a>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                         {% for a in search %}
                         <tr>
                             <th scope="row">{{a.id}}</th>
-                            <td><a href="{{a.url}}/{{a.id}}">{{a.titulo}}</a></td>
+                            <td><a href="{{a.url}}/{{a.id}}">{{a.tittle}}</a></td>
                         </tr>
                         {% endfor %}
                     </table>

@@ -9,11 +9,11 @@ admin.site.site_title = 'Administrador'
 
 
 class ArticuloAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'creado')
+    list_display = ('tittle', 'create')
 
-    search_fields = ('titulo', 'creado', 'autor', 'visits') 
+    search_fields = ('tittle', 'create', 'autor', 'visits') 
     readonly_fields = ('visits',)
-    fields = ('titulo', 'visits', 'description', 'tags', 'url', 'prioridad', 'contenido', 'imagen', 'alt_imagen', 'autor')
+    fields = ('tittle', 'visits', 'description', 'tags', 'url', 'priority', 'content', 'image', 'alt_image', 'autor')
     
 
 admin.site.register(models.Articulo, ArticuloAdmin)
