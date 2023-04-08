@@ -167,7 +167,7 @@ def ArticuloView(request, url:str, id:int):
         
         return render(request, 'blog/articulo/articulo.html', articulo)
     except (Articulo.DoesNotExist):
-        return render(request, 'blog/error_blog/404/404.html') # Server\blog\templates\blog\error_blog\404\404.html
+        return render(request, 'blog/error_blog/404/404.html', status=404) # Server\blog\templates\blog\error_blog\404\404.html
 
 def allView(request):
     # Templates
