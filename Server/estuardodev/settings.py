@@ -37,6 +37,8 @@ CSRF_TRUSTED_ORIGINS = ['https://estuardodev.com']
 INSTALLED_APPS = [
     # TERCEROS
     'django_hosts',
+    'rest_framework',
+
     'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
