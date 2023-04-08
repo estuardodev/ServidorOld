@@ -18,6 +18,9 @@ class Articulo(models.Model):
 
     def __str__(self) -> str:
         return self.titulo + " ID: " + str(self.id)
+    
+    def real_url(self) -> str:
+        return f"http://blog.estuardodev.com{self.url}/{self.id}"
 
 class IPUsuarios(models.Model):
     ip = models.CharField(max_length=200, verbose_name="IP del Usuario", null=True)
