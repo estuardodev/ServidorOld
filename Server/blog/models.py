@@ -21,6 +21,9 @@ class Articulo(models.Model):
     def real_url(self) -> str:
         return f"http://blog.estuardodev.com{self.url}/{self.id}"
     
+    def real_url_image(self) -> str:
+        return f"http://blog.estuardodev.com/media/{self.image}"
+    
 
 class IPUsuarios(models.Model):
     ip = models.CharField(max_length=200, verbose_name="IP del Usuario", null=True)
