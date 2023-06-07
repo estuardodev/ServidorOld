@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
-from pathlib import Path
-
 import os
+from pathlib import Path
+from mysecrets import SECRET_KEY, PASSWORD_DATABASE, DJANGO_DEBUG, SHS, SCS, SHIS, SHP, SSR, CCS
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,16 +21,36 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*5)r*hu5^1=2d@8&xex-#1=e5$sri+k+p2ap83=01!zyj!d_da'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = DJANGO_DEBUG
 
+# Hosts permitidos para acceder al sitio web
+ALLOWED_HOSTS = ['localhost', 'estuardodev.com', 'blog.estuardodev.com']
 
-# ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com'] # Local
-ALLOWED_HOSTS = ['estuardodev.com', 'www.estuardodev.com', 'blog.estuardodev.com',] # Production
+# Hosts permitidos para el administrador
 CSRF_TRUSTED_ORIGINS = ['https://estuardodev.com']
+
+# Configuración para garantizar cookies CSRF seguras
+CSRF_COOKIE_SECURE = CCS
+
+# Configuración para garantizar cookies de sesión seguras
+SESSION_COOKIE_SECURE = SCS
+
+# Configuración para redirigir automáticamente todas las conexiones HTTP a HTTPS
+SECURE_SSL_REDIRECT = SSR
+
+# Configuración para habilitar HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = SHS
+
+# Configuración para indicar que todos los subdominios deben ser servidos exclusivamente a través de SSL
+SECURE_HSTS_INCLUDE_SUBDOMAINS = SHIS
+
+# Configuración para permitir la inclusión en la lista de precarga del navegador
+SECURE_HSTS_PRELOAD = SHP
 
 # Application definition
 
@@ -114,7 +134,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_app',
         'USER': 'root',
-        'PASSWORD': 'MDB_Root_1',
+        'PASSWORD': PASSWORD_DATABASE,
         'HOST': '127.0.0.1',
         'PORT': 3306
     }
@@ -159,6 +179,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# Media files (Audio, Videos, Documentos)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
