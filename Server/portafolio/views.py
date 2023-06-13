@@ -126,7 +126,7 @@ def DownloadDBView(request):
     # Define Django project base directory
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # Define text file name
-    filename = '2023' + '-' + '02' + '-' + '07' + '-' + 'django_app' +'.sql'
+    filename = 'django_sql' +'.sql'
     # Define the full file path
     filepath = BASE_DIR + '/copy_db/' + filename
     # Open the file for reading content
