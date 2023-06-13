@@ -78,7 +78,7 @@ def UsuariosCap(request):
 
 # Create your views here.
 def indexView(request):
-    return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
+    #return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
     # Templates
     template_name: str = "blog/index.html"
     template_name_stop: str = "portafolio/stop.html"
@@ -123,7 +123,7 @@ def indexView(request):
         return render(request, template_name, {'articulos': articulos, 'resta': resta, 'img':img,})
 
 def ArticuloView(request, url:str, id:int):
-    return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
+    #return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
     
     # Verificamos que el id solicitado sea correcto
     articule = get_object_or_404(Articulo, pk=id)
@@ -173,7 +173,7 @@ def ArticuloView(request, url:str, id:int):
         return render(request, 'blog/error_blog/404/404.html', status=404) # Server\blog\templates\blog\error_blog\404\404.html
 
 def allView(request):
-    return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
+    #return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
     # Templates
     template_name: str = "blog/all.html"
     template_name_stop: str = "portafolio/stop.html"

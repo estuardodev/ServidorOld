@@ -89,7 +89,7 @@ def monitor_the_cpu_and_memory():
 
 # IndexView ("estuardodev.com" | "www.estuardodev.com")
 def IndexView(request):
-    return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
+    #return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
     template_name: str = "portafolio/index.html"
     template_name_stop: str = "portafolio/stop.html"
     
