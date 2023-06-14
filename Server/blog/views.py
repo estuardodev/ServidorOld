@@ -76,129 +76,113 @@ def UsuariosCap(request):
         return ip, user_agent
 
 
-# Create your views here.
-def indexView(request):
-    #return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
-    # Templates
-    template_name: str = "blog/index.html"
-    template_name_stop: str = "portafolio/stop.html"
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Articulo
 
-    # Datos externos
-    UsuariosCap(request)
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Articulo
+
+def indexView(request):
+    template_name = "blog/index.html"
+    template_name_stop = "portafolio/stop.html"
+    message_alert = True
+
+    # Verificación de si el CPU está a más del 90%, en ese caso se renderiza el template_name_stop
     cpu, memory = monitor_the_cpu_and_memory()
     cpu, memory = float(cpu), float(memory)
-
-    # Registros de DB
-    articulos = Articulo.objects.all().order_by('-id') # Se obtienen y se ordenan del ultimo al primero
-    articulos2 = Articulo.objects.all().count() # Se cuentan cuantos articulos hay
-    img = Articulo.objects.filter(id=1) # Imagen de la pestaña
-    resta = articulos2 - 6 # Resta para articulos a mostrar
-    all = request.POST.get('all')
-
-    # Variables
-    message_alert = True
-    # Verificación de si el CPU esta a mas de 90%, de ser así se renderizara el template_name_stop
     if cpu > 90:
         return render(request, template_name_stop)
-    
-    # Verificación de si el usuario realiza una busqueda
+
+    # Obtener registros de DB
+    articulos = Articulo.objects.filter(status=True).order_by('-id')  # Se obtienen y se ordenan del último al primero
+    articulos_count = articulos.count()  # Se cuenta cuántos artículos hay
+    img = Articulo.objects.filter(id=1)  # Imagen de la pestaña
+    resta = articulos_count - 6  # Resta para artículos a mostrar
+
+    # Verificación de si el usuario realiza una búsqueda
     search = request.GET.get('search')
     if search:
-        articulo1 = Articulo.objects.filter(Q(tittle__icontains=search) | Q(tags__icontains=search) | Q(create__icontains=search)).distinct()
-        # Renderización si el usuario realizó una busqueda
+        articulo1 = articulos.filter(Q(tittle__icontains=search) | Q(tags__icontains=search) | Q(create__icontains=search)).distinct()
+        # Renderización si el usuario realizó una búsqueda
         if cpu >= 80:
-            articulo = {'search': articulo1, 'message_alert': message_alert, 'articulos': articulos}
-            all = Articulo.objects.all().order_by('-id')    
-            return render(request, 'blog/index.html', articulo)
+            context = {'search': articulo1, 'message_alert': message_alert, 'articulos': articulo1}
+            return render(request, template_name, context)
         else:
-            articulo = {'search': articulo1, 'articulos': articulos }
-            all = Articulo.objects.all().order_by('-id')    
-            return render(request, 'blog/index.html', articulo)
-    
-    # Renderización del template normalmente
-    if cpu >= 80:
-        return render(request, template_name, { 'message_alert': message_alert, 'articulos': articulos, 'resta': resta, 'img':img,})
-    else:
-        # Se renderiza sin importar algo
-        return render(request, template_name, {'articulos': articulos, 'resta': resta, 'img':img,})
+            context = {'search': articulo1, 'articulos': articulo1}
+            return render(request, template_name, context)
 
-def ArticuloView(request, url:str, id:int):
-    #return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
-    
+    # Renderización del template normalmente
+    context = {'articulos': articulos, 'resta': resta, 'img': img}
+    if cpu >= 80:
+        context['message_alert'] = message_alert
+    return render(request, template_name, context)
+
+
+
+def ArticuloView(request, url: str, id: int):
     # Verificamos que el id solicitado sea correcto
-    articule = get_object_or_404(Articulo, pk=id)
-    
-    # Templates
-    template_name: str = "blog/articulo/articulo.html"
-    template_name_stop: str = "portafolio/stop.html"
-    
-    # Datos externos
+    articulo_right = get_object_or_404(Articulo, pk=id, status=True)
+
+    template_name = "blog/articulo/articulo.html"
+    template_name_stop = "portafolio/stop.html"
+    message_alert = True
+
+    # Obtener datos externos
     UsuariosCap(request)
     cpu, memory = monitor_the_cpu_and_memory()
     cpu, memory = float(cpu), float(memory)
 
-    # Variables
-    message_alert = True
+    # Guardar visita
+    articulo = Articulo.objects.get(pk=id)
+    articulo.visits += 1
+    articulo.save()
 
-    # Guarda Visita
-    visita = Articulo.objects.get(pk=id)
-    visita.visits += 1
-    visita.save()
-
-    # Verificación de si el CPU esta a mas de 90%, de ser así se renderizara el template_name_stop
+    # Verificación de si el CPU está a más del 90%, en ese caso se renderiza el template_name_stop
     if cpu > 90:
         return render(request, template_name_stop)
-    
-    try: 
-        search = request.GET.get('search')
-        if search:
-            articulo1 = Articulo.objects.filter(
+
+    # Verificación de si el usuario realiza una búsqueda
+    search = request.GET.get('search')
+    if search:
+        articulo1 = Articulo.objects.filter(
             Q(tittle__icontains=search) |
             Q(tags__icontains=search) |
-            Q(create__icontains=search) 
-            ).distinct()
-            articulo = {'search': articulo1 }
-            # Renderización si el usuario realizó una busqueda
-            if cpu >= 80:
-                articulo = {'search': articulo1, 'message_alert': message_alert }
-        else:
-            articulos = Articulo.objects.filter(id=id)
-            articulo = {'articulo': articulos}
-            if cpu >= 80:
-                articulos = Articulo.objects.filter(id=id)
-                articulo = {'articulo': articulos, 'message_alert': message_alert }
-        
-        return render(request, 'blog/articulo/articulo.html', articulo)
-    except (Articulo.DoesNotExist):
-        return render(request, 'blog/error_blog/404/404.html', status=404) # Server\blog\templates\blog\error_blog\404\404.html
+            Q(create__icontains=search),
+            status=True
+        ).distinct()
+        context = {'search': articulo1}
+    else:
+        context = {'articulo': articulo}
+    
+    return render(request, template_name, context)
+
 
 def allView(request):
-    #return HttpResponse("El Sitio No Está Disponible Por El Momento, Estamos en Migración")
-    # Templates
-    template_name: str = "blog/all.html"
-    template_name_stop: str = "portafolio/stop.html"
-    
-    # Datos externos
+    template_name = "blog/all.html"
+    template_name_stop = "portafolio/stop.html"
+    message_alert = True
+
+    # Obtener datos externos
     UsuariosCap(request)
     cpu, memory = monitor_the_cpu_and_memory()
     cpu, memory = float(cpu), float(memory)
 
-    # Variables
-    message_alert = True
-
-    # Registros de DB
-    articulos = Articulo.objects.all().order_by('-id')
+    # Obtener registros de la base de datos
+    articulos = Articulo.objects.filter(status=True).order_by('-id')
     no = 1
 
-    # Verificación de si el CPU esta a mas de 90%, de ser así se renderizara el template_name_stop
+    # Verificación de si el CPU está a más del 90%, en ese caso se renderiza el template_name_stop
     if cpu > 90:
         return render(request, template_name_stop)
+
+    # Retorno del template
+    context = {'all': articulos, 'no': no}
     if cpu >= 80:
-        # Retorno en caso de estar a 80% el CPU
-        return render(request, template_name, {'all': articulos, 'no': no, 'message_alert': message_alert})
-    else:
-        # Retorno sin sobre carga alguna
-        return render(request, template_name, {'all': articulos, 'no': no})
+        context['message_alert'] = message_alert
+    return render(request, template_name, context)
+
 
 # SEO
 class RobotsView(generic.TemplateView):

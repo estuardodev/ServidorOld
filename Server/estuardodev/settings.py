@@ -29,7 +29,7 @@ SECRET_KEY = SECRET_KEY
 DEBUG = DJANGO_DEBUG
 
 # Hosts permitidos para acceder al sitio web
-ALLOWED_HOSTS = ['localhost', 'estuardodev.com', 'blog.estuardodev.com']
+ALLOWED_HOSTS = ['localhost', 'estuardodev.com', 'blog.estuardodev.com', 'www.estuardodev.com']
 
 # Hosts permitidos para el administrador
 CSRF_TRUSTED_ORIGINS = ['https://estuardodev.com']

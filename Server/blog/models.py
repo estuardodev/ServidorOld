@@ -13,7 +13,8 @@ class Articulo(models.Model):
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     alt_image = models.CharField(max_length=150, null=True)
     autor = models.CharField(max_length=200, default='Estuardo Ramírez')
-    visits = models.IntegerField(default=0, verbose_name="Total Visitas", null=True)   
+    visits = models.IntegerField(default=0, verbose_name="Total Visitas", null=True) 
+    status = models.BooleanField(default=True, verbose_name="Estado")  
 
     def __str__(self) -> str:
         return self.tittle + " ID: " + str(self.id)

@@ -7,21 +7,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% for articulo in articulo %}
+
     <title>{{articulo.tittle}}</title>
     <meta name="description" content="{{articulo.description}}">
     <meta name="keywords" content="{{articulo.tags}}">
     <link rel="icon" href="../../media/{{articulo.image}}">
     <link rel="apple-touch-icon" href="../../media/{{articulo.image}}">
-    {% endfor %}
+
     
-    {% for articulo in articulo %} <!--Formato para articulo en redes sociales-->
+     <!--Formato para articulo en redes sociales-->
     <meta property="og:title" content="{{articulo.tittle}}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{request.build_absolute_uri}}" />
     <meta property="og:image" content="https://{{ request.get_host }}/media/{{articulo.image}}" />
     <meta property="og:description" content="{{articulo.description}}" />
-    {% endfor %}
+    
 
     <!--Estilo Reset-->
     <link rel="stylesheet" type="text/css" href="{% static 'blog/css/reset.css' %}">
@@ -88,7 +88,7 @@
     
         {% if articulo %}
             {% block content %}
-                {% for articulo in articulo %}
+                
                 <div class="container">
                     <h1>{{articulo.tittle}}</h1>
                     
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 
-                {% endfor %}
+                
             {% endblock  %}
         {% endif %}
         {% if search %}
@@ -170,32 +170,6 @@
             {% endblock  %}
         {% endif %}
         
-    <hr>
-    <div class="container ads">
-        <br>
-        <h5>AD</h5>
-        <div class="text-center">
-            <script type="text/javascript">
-                let navegador = navigator.userAgent;
-                if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-                
-                }else{
-                    atOptions = {
-                        'key' : 'b5d7c1fabc8a0681ed4e590a86b6bbd2',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
-                    };
-                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplayformat.com/b5d7c1fabc8a0681ed4e590a86b6bbd2/invoke.js"></scr' + 'ipt>');
-                
-                }
-            </script>
-        </div>
-        <script async="async" data-cfasync="false" src="//pl18098833.highperformancecpmgate.com/f9140926653b95ad0b7b118d9d2d0b07/invoke.js"></script>
-        <div id="container-f9140926653b95ad0b7b118d9d2d0b07"></div>
-       
-    </div>
 
     <div id="scroll-indicator" class="scrolldown scrolldowndeac" style="display: none; position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;  border-radius: 30%; text-align: center; line-height: 50px; font-size: 24px; cursor: pointer;">
         ↓
