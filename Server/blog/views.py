@@ -4,7 +4,7 @@ import os, mimetypes, requests
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, JsonResponse # Respuesta HTTP
 from django.views import generic
-from django.db.models import Q
+from django.db.models import Q, Sum
 
 
 from .models import Articulo, IPUsuarios
@@ -98,6 +98,7 @@ def indexView(request):
     # Obtener registros de DB
     articulos = Articulo.objects.filter(status=True).order_by('-id')  # Se obtienen y se ordenan del último al primero
     articulos_count = articulos.count()  # Se cuenta cuántos artículos hay
+    totales_visitas = articulos.aggregate(Sum('visits'))['visits__sum']
     img = Articulo.objects.filter(id=1)  # Imagen de la pestaña
     resta = articulos_count - 6  # Resta para artículos a mostrar
 
@@ -114,7 +115,7 @@ def indexView(request):
             return render(request, template_name, context)
 
     # Renderización del template normalmente
-    context = {'articulos': articulos, 'resta': resta, 'img': img}
+    context = {'articulos': articulos, 'resta': resta, 'img': img, 'totales_visitas': totales_visitas}
     if cpu >= 80:
         context['message_alert'] = message_alert
     return render(request, template_name, context)
