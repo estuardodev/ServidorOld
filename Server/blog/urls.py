@@ -5,6 +5,7 @@ from django.conf.urls import handler404, handler500
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
+from django.http import HttpResponse
 
 # MODULO PROPIO
 from . import views
@@ -17,7 +18,7 @@ sitemaps = {
 
 urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     # SITIO
-    path('', views.indexView, name='IndexView'),
+    path('', HttpResponse("Lo sentimos, estamos migrando, no puedes acceder en este momento")),
     path('articulo/<str:url>/<int:id>', views.ArticuloView, name="ArticuloView"),
     path("all/", views.allView, name="all"),  
 

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler404, handler500
 from django.views.generic.base import TemplateView
+from django.http import HttpResponse
 
 # Importaciones propias
 from portafolio.views import Error404View, Error500View, AtributionView
@@ -26,7 +27,7 @@ from portafolio.views import Error404View, Error500View, AtributionView
 urlpatterns = [
     path('estuardodev_admin_site/', admin.site.urls),
     # Path sitios
-    path('', include('portafolio.urls')),
+    path('', HttpResponse("Lo sentimos, estamos migrando, no puedes acceder en este momento")),
     path('legal/', include('legal.urls')),
     path('terceros/', AtributionView.as_view()),
     path('api/', include('apis.urls')),
