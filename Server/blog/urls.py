@@ -18,7 +18,7 @@ sitemaps = {
 
 urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     # SITIO
-    path('', HttpResponse("Lo sentimos, estamos migrando, no puedes acceder en este momento")),
+    path('', views.indexView),
     path('articulo/<str:url>/<int:id>', views.ArticuloView, name="ArticuloView"),
     path("all/", views.allView, name="all"),  
 
