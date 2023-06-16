@@ -27,7 +27,7 @@ from portafolio.views import Error404View, Error500View, AtributionView
 urlpatterns = [
     path('estuardodev_admin_site/', admin.site.urls),
     # Path sitios
-    path('', HttpResponse("Lo sentimos, estamos migrando, no puedes acceder en este momento")),
+    path('', include("portafolio.urls")),
     path('legal/', include('legal.urls')),
     path('terceros/', AtributionView.as_view()),
     path('api/', include('apis.urls')),
